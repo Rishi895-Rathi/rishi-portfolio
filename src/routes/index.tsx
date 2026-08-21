@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code2 } from "luci
 import { Nucleus } from "@/components/portfolio/Nucleus";
 import { OrbitDivider } from "@/components/portfolio/OrbitDivider";
 import { timeline, learningRepos, certifications, links } from "@/components/portfolio/data";
+import rishiPortrait from "@/assets/rishi-portrait.png.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
