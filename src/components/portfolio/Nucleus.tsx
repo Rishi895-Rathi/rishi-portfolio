@@ -12,8 +12,8 @@ function Node({
   angle: number;
   radius: number;
   duration: number;
-  reverse?: boolean;
-  dim?: boolean;
+  reverse?: boolean | undefined;
+  dim?: boolean | undefined;
 }) {
   return (
     <div
