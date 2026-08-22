@@ -1,45 +1,59 @@
 export type Ring = {
   label: string;
-  radius: number;
+  rx: number;
+  ry: number;
+  tilt: number;
   duration: number;
   reverse?: boolean;
   dim?: boolean;
   skills: string[];
 };
 
+export const ATOM_SIZE = 900;
+
 export const rings: Ring[] = [
   {
     label: "Core Backend",
-    radius: 120,
-    duration: 34,
+    rx: 132,
+    ry: 54,
+    tilt: 0,
+    duration: 26,
     skills: ["Spring Boot", "Spring Security", "Spring Data JPA", "Hibernate", "JDBC"],
   },
   {
-    label: "Languages & Data",
-    radius: 185,
-    duration: 46,
+    label: "Languages",
+    rx: 198,
+    ry: 76,
+    tilt: 20,
+    duration: 34,
     reverse: true,
-    skills: ["Python", "C++", "SQL", "JavaScript"],
+    skills: ["Python", "C++", "SQL"],
   },
   {
     label: "Databases",
-    radius: 250,
-    duration: 58,
+    rx: 268,
+    ry: 98,
+    tilt: -20,
+    duration: 44,
     skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
   },
   {
     label: "Tooling",
-    radius: 320,
-    duration: 72,
+    rx: 344,
+    ry: 124,
+    tilt: 45,
+    duration: 58,
     reverse: true,
     skills: ["GitHub", "Docker", "Postman", "Swagger", "IntelliJ IDEA", "Eclipse", "Maven"],
   },
   {
     label: "Exploring",
-    radius: 385,
-    duration: 90,
+    rx: 414,
+    ry: 150,
+    tilt: -55,
+    duration: 76,
     dim: true,
-    skills: ["AWS", "Apache Kafka"],
+    skills: ["AWS", "Apache Kafka", "JavaScript"],
   },
 ];
 
