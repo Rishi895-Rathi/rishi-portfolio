@@ -78,61 +78,74 @@ function Portfolio() {
           <span className="absolute h-[760px] w-[760px] rounded-full border border-primary/[0.07]" />
         </div>
 
-        <div className="relative mx-auto max-w-6xl px-6 py-24 sm:py-32">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-muted-foreground">
-            <MapPin className="h-3.5 w-3.5 text-primary" /> Jaipur, Rajasthan · Open to backend roles
-          </p>
-          <h1 className="text-5xl font-bold sm:text-7xl">Rishi Rathi</h1>
-          <p className="mt-4 font-mono text-sm text-primary sm:text-base">
-            Java Backend Developer | Spring Boot • REST APIs • PostgreSQL
-          </p>
-          <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-            Aspiring Software Engineer building scalable, secure backend systems with Java and Spring
-            Boot.
-          </p>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 py-24 md:grid-cols-2 md:py-32">
+          <div>
+            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-surface/70 px-3 py-1 text-xs text-muted-foreground">
+              <MapPin className="h-3.5 w-3.5 text-primary" /> Jaipur, Rajasthan · Open to backend roles
+            </p>
+            <h1 className="text-5xl font-bold sm:text-7xl">Rishi Rathi</h1>
+            <p className="mt-4 font-mono text-sm text-primary sm:text-base">
+              Java Backend Developer | Spring Boot • REST APIs • PostgreSQL
+            </p>
+            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
+              Aspiring Software Engineer building scalable, secure backend systems with Java and Spring
+              Boot.
+            </p>
 
-          <div className="mt-9 flex flex-wrap gap-3">
-            <a
-              href="#projects"
-              className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--glow-soft)] transition hover:opacity-90"
-            >
-              View Projects
-            </a>
-            <a
-              href="/resume.pdf"
-              download
-              className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
-            >
-              Download Resume
-            </a>
-            <a
-              href="#contact"
-              className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-primary/60"
-            >
-              Contact Me
-            </a>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href="#projects"
+                className="rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground shadow-[var(--glow-soft)] transition hover:opacity-90"
+              >
+                View Projects
+              </a>
+              <a
+                href="/resume.pdf"
+                download
+                className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
+              >
+                Download Resume
+              </a>
+              <a
+                href="#contact"
+                className="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition hover:border-primary/60"
+              >
+                Contact Me
+              </a>
+            </div>
+
+            <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
+              <a className="flex items-center gap-2 hover:text-primary" href={`mailto:${links.email}`}>
+                <Mail className="h-4 w-4" /> {links.email}
+              </a>
+              <a className="flex items-center gap-2 hover:text-primary" href={`tel:${links.phone.replace(/\s/g, "")}`}>
+                <Phone className="h-4 w-4" /> {links.phone}
+              </a>
+            </div>
+            <div className="mt-4 flex flex-wrap gap-3 text-sm">
+              <a className="flex items-center gap-2 hover:text-primary" href={links.github} target="_blank" rel="noreferrer">
+                <Github className="h-4 w-4" /> GitHub
+              </a>
+              <span className="text-border">·</span>
+              <a className="flex items-center gap-2 hover:text-primary" href={links.linkedin} target="_blank" rel="noreferrer">
+                <Linkedin className="h-4 w-4" /> LinkedIn
+              </a>
+              <span className="text-border">·</span>
+              <a className="flex items-center gap-2 hover:text-primary" href={links.leetcode} target="_blank" rel="noreferrer">
+                <Code2 className="h-4 w-4" /> LeetCode
+              </a>
+            </div>
           </div>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
-            <a className="flex items-center gap-2 hover:text-primary" href={`mailto:${links.email}`}>
-              <Mail className="h-4 w-4" /> {links.email}
-            </a>
-            <a className="flex items-center gap-2 hover:text-primary" href={`tel:${links.phone.replace(/\s/g, "")}`}>
-              <Phone className="h-4 w-4" /> {links.phone}
-            </a>
-          </div>
-          <div className="mt-4 flex flex-wrap gap-3 text-sm">
-            <a className="flex items-center gap-2 hover:text-primary" href={links.github} target="_blank" rel="noreferrer">
-              <Github className="h-4 w-4" /> GitHub
-            </a>
-            <span className="text-border">·</span>
-            <a className="flex items-center gap-2 hover:text-primary" href={links.linkedin} target="_blank" rel="noreferrer">
-              <Linkedin className="h-4 w-4" /> LinkedIn
-            </a>
-            <span className="text-border">·</span>
-            <a className="flex items-center gap-2 hover:text-primary" href={links.leetcode} target="_blank" rel="noreferrer">
-              <Code2 className="h-4 w-4" /> LeetCode
-            </a>
+          <div className="flex justify-center md:justify-end">
+            <div className="relative">
+              <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl" />
+              <img
+                src={rishiPortrait.url}
+                alt="Rishi Rathi"
+                className="relative h-56 w-56 rounded-full border-2 border-primary/40 object-cover shadow-[var(--glow-soft)] sm:h-72 sm:w-72"
+              />
+            </div>
           </div>
         </div>
       </header>
