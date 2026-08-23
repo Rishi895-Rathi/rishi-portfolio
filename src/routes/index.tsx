@@ -4,6 +4,7 @@ import { Nucleus } from "@/components/portfolio/Nucleus";
 import { OrbitDivider } from "@/components/portfolio/OrbitDivider";
 import { timeline, learningRepos, certifications, links } from "@/components/portfolio/data";
 import rishiPortrait from "@/assets/rishi-portrait.png.asset.json";
+import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -100,8 +101,8 @@ function Portfolio() {
                 View Projects
               </a>
               <a
-                href="/resume.pdf"
-                download
+                href={resumePdf.url}
+                download="RISHI_RATHI_RESUME.pdf"
                 className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
               >
                 Download Resume
