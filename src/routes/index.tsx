@@ -5,6 +5,7 @@ import { OrbitDivider } from "@/components/portfolio/OrbitDivider";
 import { timeline, learningRepos, certifications, links } from "@/components/portfolio/data";
 import rishiPortrait from "@/assets/rishi-portrait.png.asset.json";
 import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf.asset.json";
+import { useResumeLink } from "@/lib/resume";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -65,6 +66,8 @@ function Tag({ children, dim }: { children: React.ReactNode; dim?: boolean }) {
 }
 
 function Portfolio() {
+  const resume = useResumeLink(resumePdf.url, "RISHI_RATHI_RESUME.pdf");
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* HERO */}
@@ -101,8 +104,8 @@ function Portfolio() {
                 View Projects
               </a>
               <a
-                href={resumePdf.url}
-                download="RISHI_RATHI_RESUME.pdf"
+                href={resume.url}
+                download={resume.fileName}
                 className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
               >
                 Download Resume
@@ -387,7 +390,15 @@ function Portfolio() {
       </Section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Rishi Rathi · Built with Java-shaped patience.
+        <a
+          className="text-primary hover:underline"
+          href={resume.url}
+          download={resume.fileName}
+        >
+          Download Resume
+        </a>
+        <span className="mx-2">·</span>© {new Date().getFullYear()} Rishi Rathi · Built with
+        Java-shaped patience.
       </footer>
     </main>
   );
