@@ -390,7 +390,15 @@ function Portfolio() {
       </Section>
 
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
-        © {new Date().getFullYear()} Rishi Rathi · Built with Java-shaped patience.
+        <a
+          className="text-primary hover:underline"
+          href={resume.url}
+          download={resume.fileName}
+        >
+          Download Resume
+        </a>
+        <span className="mx-2">·</span>© {new Date().getFullYear()} Rishi Rathi · Built with
+        Java-shaped patience.
       </footer>
     </main>
   );
