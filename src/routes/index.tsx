@@ -66,6 +66,8 @@ function Tag({ children, dim }: { children: React.ReactNode; dim?: boolean }) {
 }
 
 function Portfolio() {
+  const resume = useResumeLink(resumePdf.url, "RISHI_RATHI_RESUME.pdf");
+
   return (
     <main className="min-h-screen bg-background text-foreground">
       {/* HERO */}
