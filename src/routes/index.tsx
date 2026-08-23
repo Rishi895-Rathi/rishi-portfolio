@@ -5,6 +5,7 @@ import { OrbitDivider } from "@/components/portfolio/OrbitDivider";
 import { timeline, learningRepos, certifications, links } from "@/components/portfolio/data";
 import rishiPortrait from "@/assets/rishi-portrait.png.asset.json";
 import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf.asset.json";
+import { useResumeLink } from "@/lib/resume";
 
 export const Route = createFileRoute("/")({
   head: () => ({
