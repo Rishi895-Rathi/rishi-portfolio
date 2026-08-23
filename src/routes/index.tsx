@@ -104,8 +104,8 @@ function Portfolio() {
                 View Projects
               </a>
               <a
-                href={resumePdf.url}
-                download="RISHI_RATHI_RESUME.pdf"
+                href={resume.url}
+                download={resume.fileName}
                 className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
               >
                 Download Resume
