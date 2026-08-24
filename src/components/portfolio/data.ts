@@ -25,14 +25,14 @@ export const rings: Ring[] = [
     label: "Databases",
     radius: 250,
     duration: 58,
-    skills: ["PostgreSQL", "MySQL", "MongoDB"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Hibernate"],
   },
   {
     label: "Tooling",
     radius: 320,
     duration: 72,
     reverse: true,
-    skills: ["GitHub", "Docker", "Postman", "Swagger", "Hibernate", "IntelliJ IDEA", "Redis", "Eclipse", "Maven"],
+    skills: ["GitHub", "Docker", "Postman", "Swagger", "Redis", "IntelliJ IDEA", "Eclipse", "Maven"],
   },
   {
     label: "Exploring",
