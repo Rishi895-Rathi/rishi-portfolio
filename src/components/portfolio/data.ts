@@ -157,7 +157,7 @@ export const certifications = [
 export const links = {
   github: "https://github.com/Rishi895-Rathi",
   linkedin: "https://www.linkedin.com/in/rishi-rathi",
-  leetcode: "https://leetcode.com/u/_BAKI_HANMA_/",
+  leetcode: "https://leetcode.com/u/_BAKI_HANMA/",
   email: "rishirathi202@gmail.com",
   phone: "+91 6376078008",
 };
