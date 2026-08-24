@@ -328,7 +328,7 @@ function Portfolio() {
               <Linkedin className="h-4 w-4 text-primary" /> LinkedIn
             </a>
             <a className="flex items-center gap-3 hover:text-primary" href={links.leetcode} target="_blank" rel="noreferrer">
-              <Code2 className="h-4 w-4 text-primary" /> _BAKI_HANMA_ - LeetCode Profile
+              <Code2 className="h-4 w-4 text-primary" /> _BAKI_HANMA - LeetCode Profile
             </a>
           </div>
 
