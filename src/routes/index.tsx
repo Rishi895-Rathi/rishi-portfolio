@@ -290,7 +290,7 @@ function Portfolio() {
           >
             <p className="font-display text-4xl font-bold text-primary">200+</p>
             <p className="mt-3 font-semibold">LeetCode problems</p>
-            <p className="mt-1 text-sm text-muted-foreground">3 badges · @_BAKI_HANMA_</p>
+            <p className="mt-1 text-sm text-muted-foreground">_BAKI_HANMA_ - LeetCode Profile</p>
           </a>
         </div>
       </Section>
@@ -328,7 +328,7 @@ function Portfolio() {
               <Linkedin className="h-4 w-4 text-primary" /> LinkedIn
             </a>
             <a className="flex items-center gap-3 hover:text-primary" href={links.leetcode} target="_blank" rel="noreferrer">
-              <Code2 className="h-4 w-4 text-primary" /> LeetCode · _BAKI_HANMA_
+              <Code2 className="h-4 w-4 text-primary" /> _BAKI_HANMA_ - LeetCode Profile
             </a>
           </div>
 

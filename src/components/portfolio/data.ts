@@ -12,7 +12,7 @@ export const rings: Ring[] = [
     label: "Core Backend",
     radius: 120,
     duration: 34,
-    skills: ["Spring Boot", "Spring Security", "Spring Data JPA", "Hibernate", "JDBC"],
+    skills: ["Spring Boot", "Spring Security", "Spring Data JPA", "JDBC"],
   },
   {
     label: "Languages & Data",
@@ -25,14 +25,14 @@ export const rings: Ring[] = [
     label: "Databases",
     radius: 250,
     duration: 58,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Redis"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Hibernate"],
   },
   {
     label: "Tooling",
     radius: 320,
     duration: 72,
     reverse: true,
-    skills: ["GitHub", "Docker", "Postman", "Swagger", "IntelliJ IDEA", "Eclipse", "Maven"],
+    skills: ["GitHub", "Docker", "Postman", "Swagger", "Redis", "IntelliJ IDEA", "Eclipse", "Maven"],
   },
   {
     label: "Exploring",
@@ -70,6 +70,7 @@ export const timeline: TimelineItem[] = [
     body: "Java Spring Boot backend that automates lead generation and outreach. It accepts seed inputs such as a company name, industry or business category, discovers similar companies across multiple online sources, extracts relevant contact information and automates personalized email communication — streamlining prospect discovery, data aggregation and outreach at scale.",
     note: "In progress: core backend and automation flow are built and under testing, with a few features still being finished.",
     stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Outreach AI", "Prospeo AI"],
+    repo: "https://github.com/Rishi895-Rathi/Email-automation",
   },
   {
     title: "TaskFlow API",
@@ -100,6 +101,7 @@ export const timeline: TimelineItem[] = [
     badge: "Professional experience",
     body: "Built a School Management System using Java with database integration to manage students, teachers and academic records. Implemented CRUD operations and structured data management to simplify administrative workflows and improve record accessibility.",
     stack: ["Java", "Spring Boot", "PostgreSQL", "AWS"],
+    repo: "https://github.com/Rishi895-Rathi/schl_management_db",
   },
   {
     title: "SEO Intern — Single Tap",
@@ -134,7 +136,7 @@ export const learningRepos = [
   {
     name: "dsa-tracker",
     line: "Tracker for DSA / problem-solving practice",
-    url: "https://github.com/Rishi895-Rathi",
+    url: "https://github.com/Rishi895-Rathi/dsa-tracker",
   },
   {
     name: "DevOps Learning",
