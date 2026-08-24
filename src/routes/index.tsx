@@ -290,7 +290,7 @@ function Portfolio() {
           >
             <p className="font-display text-4xl font-bold text-primary">200+</p>
             <p className="mt-3 font-semibold">LeetCode problems</p>
-            <p className="mt-1 text-sm text-muted-foreground">_BAKI_HANMA_ - LeetCode Profile</p>
+            <p className="mt-1 text-sm text-muted-foreground">_BAKI_HANMA - LeetCode Profile</p>
           </a>
         </div>
       </Section>
