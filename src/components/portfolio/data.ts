@@ -39,7 +39,7 @@ export const rings: Ring[] = [
     radius: 385,
     duration: 90,
     dim: true,
-    skills: ["AWS", "Apache Kafka"],
+    skills: ["AWS", "Apache Kafka", "Mockito", "JUnit"],
   },
 ];
 
