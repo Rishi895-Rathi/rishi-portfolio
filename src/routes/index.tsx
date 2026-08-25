@@ -3,9 +3,8 @@ import { Github, Linkedin, Mail, Phone, MapPin, ExternalLink, Code2 } from "luci
 import { Nucleus } from "@/components/portfolio/Nucleus";
 import { OrbitDivider } from "@/components/portfolio/OrbitDivider";
 import { timeline, learningRepos, certifications, links } from "@/components/portfolio/data";
-import rishiPortrait from "@/assets/rishi-portrait.png.asset.json";
-import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf.asset.json";
-import { useResumeLink } from "@/lib/resume";
+import rishiPortrait from "@/assets/rishi-portrait.png";
+import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -66,7 +65,7 @@ function Tag({ children, dim }: { children: React.ReactNode; dim?: boolean }) {
 }
 
 function Portfolio() {
-  const resume = useResumeLink(resumePdf.url, "RISHI_RATHI_RESUME.pdf");
+
 
   return (
     <main className="min-h-screen bg-background text-foreground">
@@ -104,8 +103,8 @@ function Portfolio() {
                 View Projects
               </a>
               <a
-                href={resume.url}
-                download={resume.fileName}
+                href={resumePdf}
+                download="RISHI_RATHI_RESUME.pdf"
                 className="rounded-lg border border-primary/60 px-5 py-2.5 text-sm font-semibold text-primary transition hover:bg-primary/10"
               >
                 Download Resume
@@ -145,9 +144,9 @@ function Portfolio() {
             <div className="relative">
               <div className="absolute inset-0 rounded-full bg-primary/20 blur-2xl" />
               <img
-                src={rishiPortrait.url}
+                src={rishiPortrait}
                 alt="Rishi Rathi"
-                className="relative h-56 w-56 rounded-full border-2 border-primary/40 object-cover shadow-[var(--glow-soft)] sm:h-72 sm:w-72"
+                className="relative h-56 w-56 rounded-full border-2 border-primary/40 object-cover object-top shadow-[var(--glow-soft)] sm:h-72 sm:w-72"
               />
             </div>
           </div>
@@ -392,8 +391,8 @@ function Portfolio() {
       <footer className="border-t border-border py-8 text-center text-xs text-muted-foreground">
         <a
           className="text-primary hover:underline"
-          href={resume.url}
-          download={resume.fileName}
+          href={resumePdf}
+          download="RISHI_RATHI_RESUME.pdf"
         >
           Download Resume
         </a>
