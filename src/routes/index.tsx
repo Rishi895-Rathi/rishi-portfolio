@@ -204,7 +204,7 @@ function Portfolio() {
 
           {/* Name */}
           <h1
-            className={`gradient-text text-6xl font-bold leading-tight sm:text-8xl md:text-9xl transition-all duration-700 delay-300 ${heroReady ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
+            className={`text-foreground text-6xl font-bold leading-tight sm:text-8xl md:text-9xl transition-all duration-700 delay-300 ${heroReady ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
           >
             Rishi Rathi
           </h1>
