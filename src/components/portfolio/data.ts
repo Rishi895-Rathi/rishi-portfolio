@@ -60,6 +60,7 @@ export const timeline: TimelineItem[] = [
     period: "2026",
     badge: "Live project",
     body: "Java Spring Boot backend managing Patients, Doctors and Appointments with a DTO-based architecture and relational database integration. Appointment scheduling logic prevents conflicting bookings so a doctor is never double-assigned for the same date and time, with RESTful APIs across patient, doctor and appointment management keeping data consistent and intact.",
+    note: "Open issue: Looking for contributors to implement email verification. Feel free to submit a PR!",
     stack: ["Java", "Spring Boot", "Postman", "PostgreSQL", "Docker"],
     repo: "https://github.com/Rishi895-Rathi/Hospital-Analysis-System",
     link: "https://hospital-analysis-system.vercel.app",
