@@ -25,7 +25,7 @@ export const rings: Ring[] = [
     label: "Databases",
     radius: 250,
     duration: 58,
-    skills: ["PostgreSQL", "MySQL", "MongoDB", "Hibernate"],
+    skills: ["PostgreSQL", "MySQL", "MongoDB", "Hibernate", "CI/CD"],
   },
   {
     label: "Tooling",
@@ -51,17 +51,18 @@ export type TimelineItem = {
   note?: string;
   stack: string[];
   repo?: string;
+  link?: string;
 };
 
 export const timeline: TimelineItem[] = [
   {
     title: "Hospital Management System",
-    period: "2026 — Present",
-    badge: "Current project",
+    period: "2026",
+    badge: "Live project",
     body: "Java Spring Boot backend managing Patients, Doctors and Appointments with a DTO-based architecture and relational database integration. Appointment scheduling logic prevents conflicting bookings so a doctor is never double-assigned for the same date and time, with RESTful APIs across patient, doctor and appointment management keeping data consistent and intact.",
-    note: "Next step: deploying the app to make it live and publicly accessible.",
     stack: ["Java", "Spring Boot", "Postman", "PostgreSQL", "Docker"],
     repo: "https://github.com/Rishi895-Rathi/Hospital-Analysis-System",
+    link: "https://hospital-analysis-system.vercel.app",
   },
   {
     title: "Email Automation Platform — Spring Boot Backend",

@@ -349,17 +349,29 @@ function Portfolio() {
                     <Tag key={s}>{s}</Tag>
                   ))}
                 </div>
-                {item.repo && (
-                  <a
-                    href={item.repo}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="mt-5 inline-flex items-center gap-2 text-sm text-primary transition hover:gap-3"
-                  >
-                    <Github className="h-4 w-4" /> View repository
-                    <ExternalLink className="h-3.5 w-3.5" />
-                  </a>
-                )}
+                <div className="mt-5 flex flex-wrap gap-4">
+                  {item.repo && (
+                    <a
+                      href={item.repo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-primary transition hover:gap-3"
+                    >
+                      <Github className="h-4 w-4" /> View repository
+                      <ExternalLink className="h-3.5 w-3.5" />
+                    </a>
+                  )}
+                  {item.link && (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-accent transition hover:gap-3"
+                    >
+                      <ExternalLink className="h-4 w-4" /> Live demo
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}
