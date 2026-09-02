@@ -25,24 +25,59 @@ import {
 import rishiPortrait from "@/assets/rishi-portrait.png";
 import resumePdf from "@/assets/RISHI_RATHI_RESUME.pdf";
 
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rishi Rathi",
+  "jobTitle": "Java Backend Developer",
+  "url": "https://rishi-portfolio-taupe.vercel.app/",
+  "sameAs": [
+    "https://github.com/Rishi895-Rathi",
+    "https://www.linkedin.com/in/er-rishirathi/"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "addressCountry": "India"
+  },
+  "knowsAbout": ["Java", "Spring Boot", "PostgreSQL", "REST APIs", "Backend Development"],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Arya College of Engineering"
+  }
+};
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Rishi Rathi — Java Backend Developer" },
+      { title: "Rishi Rathi | Java Backend Developer & API Architect" },
       {
         name: "description",
         content:
-          "Portfolio of Rishi Rathi, Java backend developer building scalable, secure systems with Spring Boot, REST APIs and PostgreSQL.",
+          "Portfolio of Rishi Rathi, an aspiring Java Backend Developer specializing in scalable, secure systems with Spring Boot, REST APIs, and PostgreSQL. Based in Jaipur, India.",
       },
-      { property: "og:title", content: "Rishi Rathi — Java Backend Developer" },
+      { property: "og:title", content: "Rishi Rathi | Java Backend Developer" },
       {
         property: "og:description",
         content:
-          "Spring Boot, REST APIs and PostgreSQL. Projects, experience and skills of an aspiring software engineer based in Jaipur.",
+          "Discover the projects, experience, and skills of Rishi Rathi, a Java Backend Developer building secure REST APIs and scalable architectures.",
       },
       { property: "og:type", content: "profile" },
+      { property: "og:url", content: "https://rishi-portfolio-taupe.vercel.app/" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Rishi Rathi | Java Backend Developer" },
+      { name: "twitter:description", content: "Discover the projects, experience, and skills of Rishi Rathi, a Java Backend Developer." },
     ],
+    links: [
+      { rel: "canonical", href: "https://rishi-portfolio-taupe.vercel.app/" }
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify(personSchema)
+      }
+    ]
   }),
   component: Portfolio,
 });
@@ -180,7 +215,8 @@ function Portfolio() {
                 <div className="rotating-border rounded-full">
                   <img
                     src={rishiPortrait}
-                    alt="Rishi Rathi"
+                    alt="Rishi Rathi - Java Backend Developer"
+                    fetchPriority="high"
                     className="relative h-36 w-36 rounded-full object-cover object-top sm:h-44 sm:w-44"
                   />
                 </div>

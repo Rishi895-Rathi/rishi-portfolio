@@ -78,14 +78,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Rishi Rathi — Java Backend Developer" },
+      { name: "theme-color", content: "#1a0b2e" },
+      { title: "Rishi Rathi | Java Backend Developer" },
       {
         name: "description",
         content:
           "Java backend developer building scalable, secure systems with Spring Boot, REST APIs and PostgreSQL.",
       },
       { name: "author", content: "Rishi Rathi" },
-      { property: "og:title", content: "Rishi Rathi — Java Backend Developer" },
+      { property: "og:site_name", content: "Rishi Rathi Portfolio" },
+      { property: "og:title", content: "Rishi Rathi | Java Backend Developer" },
       {
         property: "og:description",
         content: "Spring Boot · REST APIs · PostgreSQL. Projects, experience and skills.",
