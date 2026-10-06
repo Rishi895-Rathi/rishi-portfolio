@@ -472,7 +472,7 @@ function Portfolio() {
             onMouseMove={glow}
           >
             <p className="font-display text-5xl font-bold gradient-text-static">
-              <AnimatedCounter target={200} suffix="+" duration={2000} />
+              <AnimatedCounter target={300} suffix="+" duration={2000} />
             </p>
             <p className="mt-3 text-lg font-semibold">LeetCode</p>
             <p className="mt-1 text-sm text-muted-foreground">_BAKI_HANMA_ profile</p>

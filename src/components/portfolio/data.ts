@@ -68,9 +68,9 @@ export const timeline: TimelineItem[] = [
   {
     title: "Email Automation Platform — Spring Boot Backend",
     period: "Jan – Jul 2026",
-    badge: "Testing phase",
+    badge: "Backend Completed",
     body: "Java Spring Boot backend that automates lead generation and outreach. It accepts seed inputs such as a company name, industry or business category, discovers similar companies across multiple online sources, extracts relevant contact information and automates personalized email communication — streamlining prospect discovery, data aggregation and outreach at scale.",
-    note: "In progress: core backend and automation flow are built and under testing, with a few features still being finished.",
+    note: "Backend is fully complete and operational (requires your own API keys). The frontend is currently a work in progress.",
     stack: ["Java", "Spring Boot", "PostgreSQL", "Docker", "Outreach AI", "Prospeo AI"],
     repo: "https://github.com/Rishi895-Rathi/Email-automation",
   },
