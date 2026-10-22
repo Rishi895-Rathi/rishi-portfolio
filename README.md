@@ -57,7 +57,7 @@ DevOps Learning — notes/practice repo while learning DevOps fundamentals (Link
 
 🦈 GitHub Pull Shark achievement badge
 16 public repositories on GitHub
-200+ problems solved on LeetCode, holding 3 LeetCode badges (username: _BAKI_HANMA_)
+340+ problems solved on LeetCode, holding 3 LeetCode badges (username: _BAKI_HANMA_)
 
 6. Certifications
 
