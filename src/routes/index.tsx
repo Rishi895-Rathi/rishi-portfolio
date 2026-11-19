@@ -122,102 +122,209 @@ function useTypingEffect(
   return displayText;
 }
 
-/* ─── Anime Character SVG ─── */
-function AnimeCharacter() {
+/* ═══ CHIBI CHARACTER: Tanjiro Kamado — Demon Slayer ═══ */
+function TanjiroChibi({ style }: { style?: React.CSSProperties }) {
   return (
-    <svg
-      aria-hidden="true"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 160 220"
-      fill="none"
-      style={{
-        position: "absolute",
-        bottom: "40px",
-        left: "24px",
-        width: "120px",
-        height: "auto",
-        opacity: 0.15,
-        pointerEvents: "none",
-        userSelect: "none",
-      }}
-    >
-      {/* ── Hair back layer ── */}
-      <path d="M42 68 Q28 30 55 14 Q80 2 105 14 Q132 30 118 68" fill="#7c6af0"/>
-      <path d="M42 68 Q35 50 38 35 Q30 55 36 75Z" fill="#5a4ec4"/>
-      <path d="M118 68 Q125 50 122 35 Q130 55 124 75Z" fill="#5a4ec4"/>
-      {/* Hair spikes */}
-      <path d="M55 14 Q50 0 60 8" stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
-      <path d="M80 2 Q78 -8 85 4"  stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
-      <path d="M105 14 Q110 0 100 8" stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
+    <svg aria-hidden="true" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ pointerEvents:"none", userSelect:"none", ...style }}>
+      {/* Hair back */}
+      <path d="M20 55 Q18 20 50 8 Q82 20 80 55" fill="#1a1a2a"/>
+      <path d="M20 55 Q14 35 18 22 Q12 42 18 60Z" fill="#0d0d1a"/>
+      <path d="M80 55 Q86 35 82 22 Q88 42 82 60Z" fill="#0d0d1a"/>
+      {/* Red tips on hair */}
+      <path d="M50 8 Q46 2 54 2 Q58 5 50 8Z" fill="#e63946"/>
+      <path d="M34 12 Q30 6 36 7Z" fill="#e63946"/>
+      <path d="M66 12 Q70 6 64 7Z" fill="#e63946"/>
+      {/* Head */}
+      <ellipse cx="50" cy="52" rx="30" ry="32" fill="#f5e6d3"/>
+      {/* Hair front */}
+      <path d="M20 48 Q22 25 38 16 Q50 10 62 16 Q78 25 80 48" fill="#1a1a2a"/>
+      <path d="M20 48 Q16 38 20 55 Q22 50 26 52Z" fill="#0d0d1a"/>
+      <path d="M80 48 Q84 38 80 55 Q78 50 74 52Z" fill="#0d0d1a"/>
+      {/* Forehead scar — X mark, Tanjiro's signature */}
+      <path d="M44 32 L48 38" stroke="#e63946" strokeWidth="2.5" strokeLinecap="round"/>
+      <path d="M48 32 L44 38" stroke="#e63946" strokeWidth="2.5" strokeLinecap="round"/>
+      {/* Eyes */}
+      <ellipse cx="38" cy="54" rx="6" ry="7" fill="#1a1a2a"/>
+      <ellipse cx="38" cy="54" rx="4" ry="5.5" fill="#2d6a4f"/>
+      <ellipse cx="38" cy="54" rx="2" ry="3" fill="#090b13"/>
+      <ellipse cx="36.5" cy="52" rx="1.2" ry="1.2" fill="white" opacity="0.9"/>
+      <ellipse cx="62" cy="54" rx="6" ry="7" fill="#1a1a2a"/>
+      <ellipse cx="62" cy="54" rx="4" ry="5.5" fill="#2d6a4f"/>
+      <ellipse cx="62" cy="54" rx="2" ry="3" fill="#090b13"/>
+      <ellipse cx="60.5" cy="52" rx="1.2" ry="1.2" fill="white" opacity="0.9"/>
+      {/* Eyebrows — determined expression */}
+      <path d="M32 47 Q38 44 44 47" stroke="#1a1a2a" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      <path d="M56 47 Q62 44 68 47" stroke="#1a1a2a" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      {/* Nose & mouth */}
+      <path d="M48 63 Q50 66 52 63" stroke="#c9a98a" strokeWidth="1" strokeLinecap="round" fill="none"/>
+      <path d="M44 70 Q50 74 56 70" stroke="#c9a98a" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      {/* Hanafuda earring — left */}
+      <circle cx="20" cy="58" r="5" fill="#e63946" stroke="#fff" strokeWidth="1"/>
+      <circle cx="20" cy="58" r="2.5" fill="#fff"/>
+      <circle cx="20" cy="58" r="1" fill="#e63946"/>
+      {/* Hanafuda earring — right */}
+      <circle cx="80" cy="58" r="5" fill="#e63946" stroke="#fff" strokeWidth="1"/>
+      <circle cx="80" cy="58" r="2.5" fill="#fff"/>
+      <circle cx="80" cy="58" r="1" fill="#e63946"/>
+      {/* Neck */}
+      <rect x="43" y="81" width="14" height="10" rx="3" fill="#f5e6d3"/>
+      {/* Haori — green & black checker */}
+      <path d="M18 130 Q16 108 26 96 L43 84 L50 94 L57 84 L74 96 Q84 108 82 130Z" fill="#2d6a4f"/>
+      {/* Checker pattern on haori */}
+      {[0,1,2,3].map(i => [0,1,2,3].map(j => (
+        (i+j) % 2 === 0 ? <rect key={`${i}-${j}`} x={18+i*16} y={96+j*10} width="8" height="5" fill="#1a1a2a" opacity="0.7"/> : null
+      )))}
+      {/* Haori collar */}
+      <path d="M42 84 L50 94 L58 84 L55 84 L50 92 L45 84Z" fill="#e8d5b0"/>
+      {/* Shirt under */}
+      <path d="M46 84 L50 92 L54 84" fill="#fff" opacity="0.5"/>
+      {/* Arms */}
+      <path d="M26 96 Q10 108 14 125" stroke="#2d6a4f" strokeWidth="12" strokeLinecap="round" fill="none"/>
+      <path d="M74 96 Q90 108 86 125" stroke="#2d6a4f" strokeWidth="12" strokeLinecap="round" fill="none"/>
+      <ellipse cx="14" cy="125" rx="6" ry="5" fill="#f5e6d3"/>
+      <ellipse cx="86" cy="125" rx="6" ry="5" fill="#f5e6d3"/>
+      {/* Sword handle — right hand */}
+      <rect x="86" y="118" width="4" height="22" rx="2" fill="#1a1a2a" transform="rotate(-20 88 128)"/>
+      <rect x="84" y="116" width="8" height="3" rx="1" fill="#e8c84a" transform="rotate(-20 88 128)"/>
+      {/* Legs */}
+      <path d="M28 130 L30 148 L46 148 L48 136 L52 136 L54 148 L70 148 L72 130Z" fill="#1a1a2a"/>
+      {/* Ground shadow */}
+      <ellipse cx="50" cy="149" rx="28" ry="3" fill="#2d6a4f" opacity="0.25"/>
+    </svg>
+  );
+}
 
-      {/* ── Head ── */}
-      <ellipse cx="80" cy="62" rx="38" ry="40" fill="#e6e4f0"/>
-
-      {/* ── Hair front ── */}
-      <path d="M42 55 Q44 30 60 20 Q80 12 100 20 Q116 30 118 55" fill="#7c6af0"/>
-      <path d="M42 55 Q38 44 44 60 Q46 56 50 58Z" fill="#5a4ec4"/>
-      <path d="M118 55 Q122 44 116 60 Q114 56 110 58Z" fill="#5a4ec4"/>
-      {/* Side fringe */}
-      <path d="M42 55 Q36 70 44 78" stroke="#7c6af0" strokeWidth="5" strokeLinecap="round"/>
-      <path d="M118 55 Q124 70 116 78" stroke="#7c6af0" strokeWidth="5" strokeLinecap="round"/>
-
-      {/* ── Eyes ── */}
-      {/* Left eye */}
-      <ellipse cx="64" cy="66" rx="8" ry="10" fill="#1a1a2e"/>
-      <ellipse cx="64" cy="66" rx="5.5" ry="7.5" fill="#7c6af0"/>
-      <ellipse cx="64" cy="66" rx="3" ry="4" fill="#090b13"/>
-      <ellipse cx="62" cy="63" rx="1.5" ry="1.5" fill="white" opacity="0.9"/>
-      <ellipse cx="66" cy="68" rx="0.8" ry="0.8" fill="white" opacity="0.5"/>
-      {/* Right eye */}
-      <ellipse cx="96" cy="66" rx="8" ry="10" fill="#1a1a2e"/>
-      <ellipse cx="96" cy="66" rx="5.5" ry="7.5" fill="#7c6af0"/>
-      <ellipse cx="96" cy="66" rx="3" ry="4" fill="#090b13"/>
-      <ellipse cx="94" cy="63" rx="1.5" ry="1.5" fill="white" opacity="0.9"/>
-      <ellipse cx="98" cy="68" rx="0.8" ry="0.8" fill="white" opacity="0.5"/>
-      {/* Eye lashes / brows */}
-      <path d="M56 57 Q64 54 72 57" stroke="#5a4ec4" strokeWidth="2" strokeLinecap="round" fill="none"/>
-      <path d="M88 57 Q96 54 104 57" stroke="#5a4ec4" strokeWidth="2" strokeLinecap="round" fill="none"/>
-
-      {/* ── Nose & mouth ── */}
-      <path d="M78 76 Q80 79 82 76" stroke="#b8b4d0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
-      <path d="M73 85 Q80 90 87 85" stroke="#c084c8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
-
-      {/* ── Blush ── */}
-      <ellipse cx="58" cy="78" rx="7" ry="4" fill="#c084c8" opacity="0.3"/>
-      <ellipse cx="102" cy="78" rx="7" ry="4" fill="#c084c8" opacity="0.3"/>
-
-      {/* ── Neck ── */}
-      <rect x="72" y="98" width="16" height="14" rx="4" fill="#e6e4f0"/>
-
-      {/* ── Uniform / jacket — Classroom of the Elite vibe ── */}
-      {/* Jacket body */}
-      <path d="M30 170 Q28 140 40 128 L72 112 L80 125 L88 112 L120 128 Q132 140 130 170Z" fill="#1c2035"/>
+/* ═══ CHIBI CHARACTER: Gojo Satoru — Jujutsu Kaisen ═══ */
+function GojoChibi({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ pointerEvents:"none", userSelect:"none", ...style }}>
+      {/* Hair — white/silver fluffy */}
+      <path d="M18 52 Q16 18 50 6 Q84 18 82 52" fill="#d8d8e8"/>
+      <path d="M18 52 Q12 32 16 18 Q10 38 16 58Z" fill="#b8b8d0"/>
+      <path d="M82 52 Q88 32 84 18 Q90 38 84 58Z" fill="#b8b8d0"/>
+      {/* Fluffy hair tufts */}
+      <circle cx="30" cy="14" r="8" fill="#d8d8e8"/>
+      <circle cx="50" cy="8"  r="9" fill="#e0e0f0"/>
+      <circle cx="70" cy="14" r="8" fill="#d8d8e8"/>
+      <circle cx="22" cy="22" r="6" fill="#c8c8e0"/>
+      <circle cx="78" cy="22" r="6" fill="#c8c8e0"/>
+      {/* Head */}
+      <ellipse cx="50" cy="52" rx="30" ry="31" fill="#f5e8e0"/>
+      {/* Hair front floof */}
+      <path d="M22 44 Q24 20 40 14 Q50 10 60 14 Q76 20 78 44" fill="#d8d8e8"/>
+      <path d="M22 44 Q18 34 22 50 Q24 46 28 48Z" fill="#c8c8e0"/>
+      <path d="M78 44 Q82 34 78 50 Q76 46 72 48Z" fill="#c8c8e0"/>
+      {/* ── Blindfold — Gojo's most iconic feature ── */}
+      <rect x="22" y="49" width="56" height="12" rx="4" fill="#0d0d1a"/>
+      {/* Infinity symbol hint on blindfold */}
+      <path d="M38 55 Q42 51 46 55 Q42 59 38 55Z" stroke="#6366f1" strokeWidth="1" fill="none" opacity="0.6"/>
+      <path d="M54 55 Q58 51 62 55 Q58 59 54 55Z" stroke="#6366f1" strokeWidth="1" fill="none" opacity="0.6"/>
+      {/* Six Eyes glow under blindfold */}
+      <ellipse cx="38" cy="55" rx="5" ry="3" fill="#6366f1" opacity="0.3"/>
+      <ellipse cx="62" cy="55" rx="5" ry="3" fill="#6366f1" opacity="0.3"/>
+      {/* Eyebrows above blindfold */}
+      <path d="M30 46 Q38 42 46 46" stroke="#888" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      <path d="M54 46 Q62 42 70 46" stroke="#888" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      {/* Smug smile */}
+      <path d="M42 72 Q50 78 58 72" stroke="#c9a98a" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+      <path d="M42 72 Q41 69 44 70" stroke="#c9a98a" strokeWidth="1" strokeLinecap="round" fill="none"/>
+      {/* Neck */}
+      <rect x="43" y="81" width="14" height="10" rx="3" fill="#f5e8e0"/>
+      {/* Jujutsu Tech uniform — dark */}
+      <path d="M18 130 Q16 108 26 96 L43 84 L50 94 L57 84 L74 96 Q84 108 82 130Z" fill="#1a1a2e"/>
       {/* Collar */}
-      <path d="M68 112 L80 125 L92 112 L88 112 L80 122 L72 112Z" fill="#2d3358"/>
-      {/* White shirt under */}
-      <path d="M74 112 L80 122 L86 112" fill="#e6e4f0" opacity="0.6"/>
-      {/* Jacket lapels */}
-      <path d="M68 112 L40 130 L44 170 L60 150 L72 112Z" fill="#161929"/>
-      <path d="M92 112 L120 130 L116 170 L100 150 L88 112Z" fill="#161929"/>
-      {/* Buttons */}
-      <circle cx="80" cy="138" r="2" fill="#7c6af0" opacity="0.7"/>
-      <circle cx="80" cy="150" r="2" fill="#7c6af0" opacity="0.7"/>
-      <circle cx="80" cy="162" r="2" fill="#7c6af0" opacity="0.7"/>
+      <path d="M42 84 L50 94 L58 84 L55 84 L50 90 L45 84Z" fill="#2d2d4a"/>
+      <path d="M46 84 L50 90 L54 84" fill="#fff" opacity="0.3"/>
+      {/* Infinity aura rings */}
+      <circle cx="50" cy="110" r="38" stroke="#6366f1" strokeWidth="0.8" strokeDasharray="4 3" opacity="0.5" fill="none"/>
+      <circle cx="50" cy="110" r="30" stroke="#818cf8" strokeWidth="0.5" opacity="0.3" fill="none"/>
+      {/* Arms */}
+      <path d="M26 96 Q10 108 14 125" stroke="#1a1a2e" strokeWidth="12" strokeLinecap="round" fill="none"/>
+      <path d="M74 96 Q90 108 86 125" stroke="#1a1a2e" strokeWidth="12" strokeLinecap="round" fill="none"/>
+      <ellipse cx="14" cy="125" rx="6" ry="5" fill="#f5e8e0"/>
+      <ellipse cx="86" cy="125" rx="6" ry="5" fill="#f5e8e0"/>
+      {/* Legs */}
+      <path d="M28 130 L30 148 L46 148 L48 136 L52 136 L54 148 L70 148 L72 130Z" fill="#12121f"/>
+      {/* Ground shadow */}
+      <ellipse cx="50" cy="149" rx="28" ry="3" fill="#6366f1" opacity="0.2"/>
+    </svg>
+  );
+}
 
-      {/* ── Arms — crossed / relaxed ── */}
-      {/* Left arm */}
-      <path d="M40 128 Q22 140 26 162 Q30 170 44 170" stroke="#1c2035" strokeWidth="16" strokeLinecap="round" fill="none"/>
-      {/* Right arm */}
-      <path d="M120 128 Q138 140 134 162 Q130 170 116 170" stroke="#1c2035" strokeWidth="16" strokeLinecap="round" fill="none"/>
-      {/* Hands */}
-      <ellipse cx="26" cy="162" rx="8" ry="6" fill="#e6e4f0"/>
-      <ellipse cx="134" cy="162" rx="8" ry="6" fill="#e6e4f0"/>
-
-      {/* ── Legs / lower body ── */}
-      <path d="M44 170 L48 215 L70 215 L72 185 L80 185 L88 185 L90 215 L112 215 L116 170Z" fill="#161929"/>
-
-      {/* ── Ground shadow ── */}
-      <ellipse cx="80" cy="216" rx="40" ry="4" fill="#7c6af0" opacity="0.2"/>
+/* ═══ CHIBI CHARACTER: Sung Jin-Woo — Solo Leveling ═══ */
+function SungJinwooChibi({ style }: { style?: React.CSSProperties }) {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg"
+      style={{ pointerEvents:"none", userSelect:"none", ...style }}>
+      {/* Shadow monarch aura */}
+      <ellipse cx="50" cy="120" rx="42" ry="28" fill="#4c1d95" opacity="0.2"/>
+      {/* Hair — dark black, slightly messy */}
+      <path d="M20 54 Q18 18 50 6 Q82 18 80 54" fill="#0d0d14"/>
+      <path d="M20 54 Q14 34 18 20 Q10 40 18 60Z" fill="#06060c"/>
+      <path d="M80 54 Q86 34 82 20 Q90 40 82 60Z" fill="#06060c"/>
+      {/* Hair spikes — sharp, edgy */}
+      <path d="M50 6 Q46 -2 52 2Z" fill="#0d0d14"/>
+      <path d="M62 10 Q66 2 64 6Z" fill="#0d0d14"/>
+      <path d="M38 10 Q34 2 36 6Z" fill="#0d0d14"/>
+      {/* Head */}
+      <ellipse cx="50" cy="52" rx="29" ry="31" fill="#e8ddd8"/>
+      {/* Hair front */}
+      <path d="M22 46 Q24 22 40 14 Q50 10 60 14 Q76 22 78 46" fill="#0d0d14"/>
+      <path d="M22 46 Q18 36 22 54 Q24 50 28 52Z" fill="#06060c"/>
+      <path d="M78 46 Q82 36 78 54 Q76 50 72 52Z" fill="#06060c"/>
+      {/* Hair fringe — covers forehead */}
+      <path d="M34 28 Q38 20 50 18 Q62 20 66 28 Q60 24 50 24 Q40 24 34 28Z" fill="#06060c"/>
+      {/* Eyes — purple/dark monarch eyes */}
+      <ellipse cx="38" cy="55" rx="6.5" ry="8" fill="#0d0d14"/>
+      <ellipse cx="38" cy="55" rx="4.5" ry="6" fill="#6d28d9"/>
+      <ellipse cx="38" cy="55" rx="2.5" ry="3.5" fill="#0d0d14"/>
+      <ellipse cx="36.5" cy="52.5" rx="1.3" ry="1.3" fill="white" opacity="0.9"/>
+      {/* Purple glow in eyes */}
+      <ellipse cx="38" cy="57" rx="2" ry="1" fill="#8b5cf6" opacity="0.5"/>
+      <ellipse cx="62" cy="55" rx="6.5" ry="8" fill="#0d0d14"/>
+      <ellipse cx="62" cy="55" rx="4.5" ry="6" fill="#6d28d9"/>
+      <ellipse cx="62" cy="55" rx="2.5" ry="3.5" fill="#0d0d14"/>
+      <ellipse cx="60.5" cy="52.5" rx="1.3" ry="1.3" fill="white" opacity="0.9"/>
+      <ellipse cx="62" cy="57" rx="2" ry="1" fill="#8b5cf6" opacity="0.5"/>
+      {/* Sharp eyebrows — intense */}
+      <path d="M31 47 L44 45" stroke="#0d0d14" strokeWidth="2.2" strokeLinecap="round"/>
+      <path d="M56 45 L69 47" stroke="#0d0d14" strokeWidth="2.2" strokeLinecap="round"/>
+      {/* Nose & stoic mouth */}
+      <path d="M48 64 Q50 67 52 64" stroke="#b8a898" strokeWidth="1" strokeLinecap="round" fill="none"/>
+      <path d="M44 72 Q50 74 56 72" stroke="#b8a898" strokeWidth="1.5" strokeLinecap="round" fill="none"/>
+      {/* Neck */}
+      <rect x="43" y="80" width="14" height="11" rx="3" fill="#e8ddd8"/>
+      {/* Shadow Monarch armor — dark purple/black */}
+      <path d="M16 132 Q14 108 25 96 L43 83 L50 93 L57 83 L75 96 Q86 108 84 132Z" fill="#1e0a3c"/>
+      {/* Armor chest plate */}
+      <path d="M34 100 Q50 94 66 100 Q62 115 50 118 Q38 115 34 100Z" fill="#2d1458"/>
+      {/* Armor details */}
+      <path d="M50 94 L50 118" stroke="#7c3aed" strokeWidth="1" opacity="0.6"/>
+      <path d="M34 100 Q50 97 66 100" stroke="#7c3aed" strokeWidth="0.8" opacity="0.4"/>
+      {/* Shoulder pauldrons */}
+      <ellipse cx="24" cy="97" rx="10" ry="6" fill="#2d1458"/>
+      <ellipse cx="76" cy="97" rx="10" ry="6" fill="#2d1458"/>
+      <path d="M20 95 Q24 90 28 95" stroke="#7c3aed" strokeWidth="1" fill="none" opacity="0.6"/>
+      <path d="M72 95 Q76 90 80 95" stroke="#7c3aed" strokeWidth="1" fill="none" opacity="0.6"/>
+      {/* Collar V */}
+      <path d="M42 83 L50 93 L58 83 L55 83 L50 90 L45 83Z" fill="#2d1458"/>
+      {/* Arms */}
+      <path d="M25 96 Q9 110 13 128" stroke="#1e0a3c" strokeWidth="13" strokeLinecap="round" fill="none"/>
+      <path d="M75 96 Q91 110 87 128" stroke="#1e0a3c" strokeWidth="13" strokeLinecap="round" fill="none"/>
+      <ellipse cx="13" cy="128" rx="6" ry="5" fill="#e8ddd8"/>
+      <ellipse cx="87" cy="128" rx="6" ry="5" fill="#e8ddd8"/>
+      {/* Legs */}
+      <path d="M26 132 L28 148 L46 148 L48 135 L52 135 L54 148 L72 148 L74 132Z" fill="#12071e"/>
+      {/* Shadow particles floating around */}
+      <circle cx="12" cy="100" r="2" fill="#7c3aed" opacity="0.6"/>
+      <circle cx="88" cy="105" r="1.5" fill="#7c3aed" opacity="0.5"/>
+      <circle cx="8"  cy="115" r="1" fill="#8b5cf6" opacity="0.4"/>
+      <circle cx="92" cy="90"  r="1.2" fill="#6d28d9" opacity="0.5"/>
+      <circle cx="15" cy="88"  r="1.5" fill="#7c3aed" opacity="0.4"/>
+      {/* Ground shadow — purple tinted */}
+      <ellipse cx="50" cy="149" rx="28" ry="3.5" fill="#6d28d9" opacity="0.3"/>
     </svg>
   );
 }
@@ -286,8 +393,15 @@ function Portfolio() {
           }}
         />
 
-        {/* Anime character decoration — bottom right of hero */}
-        <AnimeCharacter />
+        {/* ── Anime characters scattered around hero — hidden on small screens ── */}
+        <div className="hidden md:block">
+          {/* Tanjiro — bottom left corner */}
+          <TanjiroChibi style={{ position:"absolute", bottom:"32px", left:"16px", width:"96px", opacity:0.22 }} />
+          {/* Gojo — top right, sitting behind nav area */}
+          <GojoChibi style={{ position:"absolute", top:"80px", right:"20px", width:"88px", opacity:0.18 }} />
+          {/* Sung Jin-Woo — bottom right */}
+          <SungJinwooChibi style={{ position:"absolute", bottom:"28px", right:"120px", width:"100px", opacity:0.2 }} />
+        </div>
 
         {/* ── Asymmetric hero layout ── */}
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between px-6">
