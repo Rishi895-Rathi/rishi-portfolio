@@ -382,7 +382,7 @@ function Portfolio() {
           <div className="panel-accent p-6">
             <p className="font-mono text-[0.6rem] tracking-[0.3em] text-[var(--muted-foreground)] uppercase">CGPA</p>
             <p className="mt-3 stat-num gradient-text-static">
-              <AnimatedCounter target={9.02} duration={2000} />
+              <AnimatedCounter target={9.12} duration={2000} />
             </p>
             <p className="mt-2 font-mono text-[0.6rem] text-[var(--muted-foreground)]">/ 10.0</p>
           </div>
