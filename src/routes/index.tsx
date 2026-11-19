@@ -441,7 +441,7 @@ function Portfolio() {
 
       {/* ═══════ ACHIEVEMENTS ═══════ */}
       <AnimatedSection id="achievements" eyebrow="Proof of work" title="Achievements">
-        <div className="grid gap-4 sm:grid-cols-3">
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <div className="glass-card rounded-2xl p-6" onMouseMove={glow}>
             <div className="relative z-10">
               <p className="text-4xl">🦈</p>
@@ -449,6 +449,22 @@ function Portfolio() {
               <p className="mt-1 text-sm text-muted-foreground">GitHub achievement badge</p>
             </div>
           </div>
+          <a
+            href={links.leetcode}
+            target="_blank"
+            rel="noreferrer"
+            className="glass-card rounded-2xl p-6"
+            onMouseMove={glow}
+          >
+            <div className="relative z-10">
+              <p className="text-4xl">🏅</p>
+              <p className="font-display mt-3 text-5xl font-bold gradient-text-static">
+                <AnimatedCounter target={6} duration={1500} />
+              </p>
+              <p className="mt-3 text-lg font-semibold">LeetCode Badges</p>
+              <p className="mt-1 text-sm text-muted-foreground">Earned on _BAKI_HANMA_ profile</p>
+            </div>
+          </a>
           <a
             href={links.github}
             target="_blank"
@@ -472,7 +488,7 @@ function Portfolio() {
             onMouseMove={glow}
           >
             <p className="font-display text-5xl font-bold gradient-text-static">
-              <AnimatedCounter target={340} suffix="+" duration={2000} />
+              <AnimatedCounter target={400} suffix="+" duration={2000} />
             </p>
             <p className="mt-3 text-lg font-semibold">LeetCode</p>
             <p className="mt-1 text-sm text-muted-foreground">_BAKI_HANMA_ profile</p>
