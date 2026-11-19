@@ -427,15 +427,6 @@ html {
   animation: nucleus-breathe 5s ease-in-out infinite;
 }
 
-/* ═══════════════ BLOSSOM DECORATION ═══════════════ */
-/* Subtle cherry blossom SVG in hero — very low opacity */
-.blossom-bg {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.045;
-  user-select: none;
-}
-
 /* ═══════════════ TYPING CURSOR ═══════════════ */
 @keyframes blink-cursor {
   0%, 100% { border-color: var(--accent-2); }

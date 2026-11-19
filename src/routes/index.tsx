@@ -132,11 +132,11 @@ function AnimeCharacter() {
       fill="none"
       style={{
         position: "absolute",
-        bottom: "60px",
-        right: "20px",
-        width: "140px",
+        bottom: "40px",
+        left: "24px",
+        width: "120px",
         height: "auto",
-        opacity: 0.18,
+        opacity: 0.15,
         pointerEvents: "none",
         userSelect: "none",
       }}
