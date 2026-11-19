@@ -122,32 +122,102 @@ function useTypingEffect(
   return displayText;
 }
 
-/* ─── Cherry Blossom SVG ─── */
-function BlossomDecoration() {
+/* ─── Anime Character SVG ─── */
+function AnimeCharacter() {
   return (
     <svg
-      className="blossom-bg"
-      style={{ bottom: "-40px", right: "-20px", width: "420px", height: "420px" }}
-      viewBox="0 0 200 200"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 160 220"
+      fill="none"
+      style={{
+        position: "absolute",
+        bottom: "60px",
+        right: "20px",
+        width: "140px",
+        height: "auto",
+        opacity: 0.18,
+        pointerEvents: "none",
+        userSelect: "none",
+      }}
     >
-      {/* Simple stylized blossom silhouette */}
-      {[0,72,144,216,288].map((rot, i) => (
-        <g key={i} transform={`rotate(${rot} 100 100)`}>
-          <ellipse cx="100" cy="60" rx="18" ry="32" fill="#c084c8" opacity="0.9"/>
-          <ellipse cx="100" cy="68" rx="10" ry="16" fill="#e8b4f0" opacity="0.5"/>
-        </g>
-      ))}
-      <circle cx="100" cy="100" r="12" fill="#f5d0f8" opacity="0.9"/>
-      {/* Smaller blossoms scattered */}
-      {[
-        {cx:30,cy:40,r:3},{cx:170,cy:60,r:2},{cx:50,cy:160,r:2.5},
-        {cx:155,cy:155,r:2},{cx:20,cy:130,r:1.5},{cx:180,cy:30,r:2},
-      ].map((p,i) => (
-        <circle key={i} cx={p.cx} cy={p.cy} r={p.r} fill="#c084c8" opacity="0.7"/>
-      ))}
+      {/* ── Hair back layer ── */}
+      <path d="M42 68 Q28 30 55 14 Q80 2 105 14 Q132 30 118 68" fill="#7c6af0"/>
+      <path d="M42 68 Q35 50 38 35 Q30 55 36 75Z" fill="#5a4ec4"/>
+      <path d="M118 68 Q125 50 122 35 Q130 55 124 75Z" fill="#5a4ec4"/>
+      {/* Hair spikes */}
+      <path d="M55 14 Q50 0 60 8" stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
+      <path d="M80 2 Q78 -8 85 4"  stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
+      <path d="M105 14 Q110 0 100 8" stroke="#7c6af0" strokeWidth="4" strokeLinecap="round"/>
+
+      {/* ── Head ── */}
+      <ellipse cx="80" cy="62" rx="38" ry="40" fill="#e6e4f0"/>
+
+      {/* ── Hair front ── */}
+      <path d="M42 55 Q44 30 60 20 Q80 12 100 20 Q116 30 118 55" fill="#7c6af0"/>
+      <path d="M42 55 Q38 44 44 60 Q46 56 50 58Z" fill="#5a4ec4"/>
+      <path d="M118 55 Q122 44 116 60 Q114 56 110 58Z" fill="#5a4ec4"/>
+      {/* Side fringe */}
+      <path d="M42 55 Q36 70 44 78" stroke="#7c6af0" strokeWidth="5" strokeLinecap="round"/>
+      <path d="M118 55 Q124 70 116 78" stroke="#7c6af0" strokeWidth="5" strokeLinecap="round"/>
+
+      {/* ── Eyes ── */}
+      {/* Left eye */}
+      <ellipse cx="64" cy="66" rx="8" ry="10" fill="#1a1a2e"/>
+      <ellipse cx="64" cy="66" rx="5.5" ry="7.5" fill="#7c6af0"/>
+      <ellipse cx="64" cy="66" rx="3" ry="4" fill="#090b13"/>
+      <ellipse cx="62" cy="63" rx="1.5" ry="1.5" fill="white" opacity="0.9"/>
+      <ellipse cx="66" cy="68" rx="0.8" ry="0.8" fill="white" opacity="0.5"/>
+      {/* Right eye */}
+      <ellipse cx="96" cy="66" rx="8" ry="10" fill="#1a1a2e"/>
+      <ellipse cx="96" cy="66" rx="5.5" ry="7.5" fill="#7c6af0"/>
+      <ellipse cx="96" cy="66" rx="3" ry="4" fill="#090b13"/>
+      <ellipse cx="94" cy="63" rx="1.5" ry="1.5" fill="white" opacity="0.9"/>
+      <ellipse cx="98" cy="68" rx="0.8" ry="0.8" fill="white" opacity="0.5"/>
+      {/* Eye lashes / brows */}
+      <path d="M56 57 Q64 54 72 57" stroke="#5a4ec4" strokeWidth="2" strokeLinecap="round" fill="none"/>
+      <path d="M88 57 Q96 54 104 57" stroke="#5a4ec4" strokeWidth="2" strokeLinecap="round" fill="none"/>
+
+      {/* ── Nose & mouth ── */}
+      <path d="M78 76 Q80 79 82 76" stroke="#b8b4d0" strokeWidth="1.2" strokeLinecap="round" fill="none"/>
+      <path d="M73 85 Q80 90 87 85" stroke="#c084c8" strokeWidth="1.8" strokeLinecap="round" fill="none"/>
+
+      {/* ── Blush ── */}
+      <ellipse cx="58" cy="78" rx="7" ry="4" fill="#c084c8" opacity="0.3"/>
+      <ellipse cx="102" cy="78" rx="7" ry="4" fill="#c084c8" opacity="0.3"/>
+
+      {/* ── Neck ── */}
+      <rect x="72" y="98" width="16" height="14" rx="4" fill="#e6e4f0"/>
+
+      {/* ── Uniform / jacket — Classroom of the Elite vibe ── */}
+      {/* Jacket body */}
+      <path d="M30 170 Q28 140 40 128 L72 112 L80 125 L88 112 L120 128 Q132 140 130 170Z" fill="#1c2035"/>
+      {/* Collar */}
+      <path d="M68 112 L80 125 L92 112 L88 112 L80 122 L72 112Z" fill="#2d3358"/>
+      {/* White shirt under */}
+      <path d="M74 112 L80 122 L86 112" fill="#e6e4f0" opacity="0.6"/>
+      {/* Jacket lapels */}
+      <path d="M68 112 L40 130 L44 170 L60 150 L72 112Z" fill="#161929"/>
+      <path d="M92 112 L120 130 L116 170 L100 150 L88 112Z" fill="#161929"/>
+      {/* Buttons */}
+      <circle cx="80" cy="138" r="2" fill="#7c6af0" opacity="0.7"/>
+      <circle cx="80" cy="150" r="2" fill="#7c6af0" opacity="0.7"/>
+      <circle cx="80" cy="162" r="2" fill="#7c6af0" opacity="0.7"/>
+
+      {/* ── Arms — crossed / relaxed ── */}
+      {/* Left arm */}
+      <path d="M40 128 Q22 140 26 162 Q30 170 44 170" stroke="#1c2035" strokeWidth="16" strokeLinecap="round" fill="none"/>
+      {/* Right arm */}
+      <path d="M120 128 Q138 140 134 162 Q130 170 116 170" stroke="#1c2035" strokeWidth="16" strokeLinecap="round" fill="none"/>
+      {/* Hands */}
+      <ellipse cx="26" cy="162" rx="8" ry="6" fill="#e6e4f0"/>
+      <ellipse cx="134" cy="162" rx="8" ry="6" fill="#e6e4f0"/>
+
+      {/* ── Legs / lower body ── */}
+      <path d="M44 170 L48 215 L70 215 L72 185 L80 185 L88 185 L90 215 L112 215 L116 170Z" fill="#161929"/>
+
+      {/* ── Ground shadow ── */}
+      <ellipse cx="80" cy="216" rx="40" ry="4" fill="#7c6af0" opacity="0.2"/>
     </svg>
   );
 }
@@ -216,8 +286,8 @@ function Portfolio() {
           }}
         />
 
-        {/* Cherry blossom decoration — bottom right corner */}
-        <BlossomDecoration />
+        {/* Anime character decoration — bottom right of hero */}
+        <AnimeCharacter />
 
         {/* ── Asymmetric hero layout ── */}
         <div className="relative z-10 mx-auto flex min-h-screen max-w-6xl flex-col justify-between px-6">
