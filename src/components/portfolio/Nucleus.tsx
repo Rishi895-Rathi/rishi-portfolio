@@ -31,17 +31,18 @@ function Node({
         <button
           type="button"
           className={[
-            "cursor-default rounded-full border px-3 py-1 text-xs font-medium whitespace-nowrap backdrop-blur-sm transition",
-            "focus:outline-none",
+            "cursor-default whitespace-nowrap transition-all duration-200",
+            "font-mono text-[0.6rem] tracking-wide",
+            "border rounded-sm px-2.5 py-0.5",
             dim
-              ? "border-dashed border-border bg-surface/60 text-muted-foreground"
-              : "border-border bg-surface/90 text-foreground/90",
-            "hover:border-primary hover:text-primary hover:shadow-[var(--glow-soft)]",
+              ? "border-dashed border-[var(--border-bright)] text-[var(--muted-foreground)] bg-transparent"
+              : "border-[var(--border-bright)] text-[var(--accent-2)] bg-[var(--surface)] hover:border-[var(--primary)] hover:text-[var(--primary)]",
+            "focus:outline-none",
           ].join(" ")}
         >
           {skill}
         </button>
-        <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 rounded-md border border-border bg-popover px-2 py-1 text-[10px] whitespace-nowrap text-popover-foreground opacity-0 transition-opacity group-hover:opacity-100">
+        <span className="pointer-events-none absolute -top-9 left-1/2 -translate-x-1/2 rounded border border-[var(--border-bright)] bg-[var(--surface-2)] px-2 py-1 text-[10px] whitespace-nowrap text-[var(--foreground)] opacity-0 transition-opacity duration-200 group-hover:opacity-100 shadow-md z-50">
           {skill}
         </span>
       </div>
@@ -63,7 +64,7 @@ export function Nucleus() {
                 width: ring.radius * 2,
                 height: ring.radius * 2,
                 borderStyle: ring.dim ? "dashed" : "solid",
-                opacity: ring.dim ? 0.5 : 1,
+                opacity: ring.dim ? 0.4 : 1,
               }}
             >
               <div
@@ -90,10 +91,13 @@ export function Nucleus() {
             </div>
           ))}
 
+          {/* Core */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-            <div className="nucleus-core flex h-32 w-32 flex-col items-center justify-center rounded-full border border-primary/60 bg-primary/15 text-center">
-              <span className="font-display text-2xl font-bold text-primary">Java</span>
-              <span className="text-[10px] tracking-widest text-muted-foreground uppercase">
+            <div className="nucleus-core flex h-28 w-28 flex-col items-center justify-center rounded-full border border-[rgba(124,106,240,0.5)] bg-[rgba(124,106,240,0.1)] text-center">
+              <span className="font-display text-xl font-bold text-[var(--primary)]">
+                Java
+              </span>
+              <span className="font-mono text-[0.55rem] tracking-[0.2em] text-[var(--muted-foreground)] uppercase mt-1">
                 nucleus
               </span>
             </div>
@@ -101,27 +105,24 @@ export function Nucleus() {
         </div>
       </div>
 
-      {/* Mobile: static concentric shells, metaphor intact */}
-      <div className="space-y-4 md:hidden">
-        <div className="relative mx-auto flex h-40 w-40 items-center justify-center rounded-full border border-primary/50 bg-primary/10 shadow-[var(--glow-soft)]">
-          <span className="absolute inset-4 rounded-full border border-dashed border-primary/25" />
-          <div className="flex h-24 w-24 flex-col items-center justify-center rounded-full border border-primary/60 bg-primary/15">
-            <span className="font-display text-xl font-bold text-primary">Java</span>
-            <span className="text-[9px] tracking-widest text-muted-foreground uppercase">
-              nucleus
-            </span>
+      {/* Mobile: clean group list */}
+      <div className="space-y-3 md:hidden">
+        <div className="relative mx-auto flex h-32 w-32 items-center justify-center rounded-full border border-[rgba(124,106,240,0.4)] bg-[rgba(124,106,240,0.08)] mb-6">
+          <div className="flex h-20 w-20 flex-col items-center justify-center rounded-full border border-[rgba(124,106,240,0.5)] bg-[rgba(124,106,240,0.12)]">
+            <span className="font-display text-lg font-bold text-[var(--primary)]">Java</span>
+            <span className="font-mono text-[0.5rem] tracking-widest text-[var(--muted-foreground)] uppercase">nucleus</span>
           </div>
         </div>
         {rings.map((ring) => (
           <div
             key={ring.label}
             className={[
-              "rounded-2xl border bg-card/60 p-4",
-              ring.dim ? "border-dashed border-border opacity-80" : "border-border",
+              "rounded border p-4",
+              ring.dim ? "border-dashed border-[var(--border)] opacity-70" : "border-[var(--border)] bg-[var(--surface-2)]",
             ].join(" ")}
           >
-            <p className="mb-3 flex items-center gap-2 text-[11px] tracking-widest text-muted-foreground uppercase">
-              <span className="h-1.5 w-1.5 rounded-full bg-primary" />
+            <p className="mb-3 flex items-center gap-2 font-mono text-[0.6rem] tracking-[0.2em] text-[var(--muted-foreground)] uppercase">
+              <span className="h-1 w-3 bg-[var(--primary)] inline-block" />
               {ring.label}
             </p>
             <div className="flex flex-wrap gap-2">
@@ -129,10 +130,10 @@ export function Nucleus() {
                 <span
                   key={s}
                   className={[
-                    "rounded-full border px-3 py-1 text-xs",
+                    "font-mono text-[0.6rem] tracking-wide border rounded-sm px-2 py-0.5",
                     ring.dim
-                      ? "border-dashed border-border text-muted-foreground"
-                      : "border-border text-foreground/90",
+                      ? "border-dashed border-[var(--border-bright)] text-[var(--muted-foreground)]"
+                      : "border-[var(--border-bright)] text-[var(--accent-2)]",
                   ].join(" ")}
                 >
                   {s}
@@ -143,13 +144,14 @@ export function Nucleus() {
         ))}
       </div>
 
-      <div className="mt-6 hidden flex-wrap justify-center gap-3 text-[11px] tracking-widest text-muted-foreground uppercase md:flex">
+      {/* Legend */}
+      <div className="mt-8 hidden flex-wrap justify-center gap-6 font-mono text-[0.6rem] tracking-[0.15em] text-[var(--muted-foreground)] uppercase md:flex">
         {rings.map((r) => (
           <span key={r.label} className="flex items-center gap-2">
             <span
               className={[
-                "h-2 w-2 rounded-full",
-                r.dim ? "bg-muted-foreground/50" : "bg-primary/70",
+                "inline-block h-px w-5",
+                r.dim ? "bg-[var(--border-bright)]" : "bg-[var(--primary)]",
               ].join(" ")}
             />
             {r.label}

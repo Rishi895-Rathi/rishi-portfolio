@@ -19,8 +19,8 @@ export function Navbar() {
   useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
-      setScrolled(y > 50);
-      setHidden(y > lastY && y > 300);
+      setScrolled(y > 60);
+      setHidden(y > lastY && y > 350);
       setLastY(y);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -60,12 +60,13 @@ export function Navbar() {
       className={[
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         scrolled
-          ? "border-b border-[oklch(0.74_0.19_295/0.1)] bg-[oklch(0.13_0.02_285/0.7)] shadow-[0_4px_30px_rgba(0,0,0,0.4)] backdrop-blur-2xl"
+          ? "border-b border-[var(--border)] bg-[rgba(9,11,19,0.85)] backdrop-blur-xl"
           : "bg-transparent",
         hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0",
       ].join(" ")}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+        {/* Logo */}
         <a
           href="#"
           aria-label="Home"
@@ -73,13 +74,13 @@ export function Navbar() {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          className="group font-display text-xl font-bold transition-all"
+          className="group font-display text-sm font-bold tracking-widest text-[var(--muted-foreground)] transition-colors hover:text-[var(--primary)] uppercase"
         >
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-[oklch(0.74_0.19_295/0.3)] bg-[oklch(0.74_0.19_295/0.1)] text-sm text-[oklch(0.74_0.19_295)] transition-all group-hover:border-[oklch(0.74_0.19_295/0.6)] group-hover:shadow-[0_0_15px_oklch(0.74_0.19_295/0.2)]">
-            RR
-          </span>
+          RR
+          <span className="ml-1 inline-block h-1 w-1 rounded-full bg-[var(--primary)] align-middle" />
         </a>
 
+        {/* Desktop nav */}
         <div className="hidden items-center gap-1 md:flex">
           {NAV_LINKS.map((link) => (
             <a
@@ -87,23 +88,24 @@ export function Navbar() {
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
               className={[
-                "relative rounded-lg px-3 py-2 text-sm font-medium transition-all",
+                "relative px-4 py-2 text-xs font-medium tracking-wide transition-colors uppercase",
                 active === link.href
-                  ? "text-[oklch(0.74_0.19_295)]"
-                  : "text-muted-foreground hover:text-foreground",
-              ].join(" ")!}
+                  ? "text-[var(--primary)]"
+                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
+              ].join(" ")}
             >
               {link.label}
               {active === link.href && (
-                <span className="absolute bottom-0 left-1/2 h-0.5 w-5 -translate-x-1/2 rounded-full bg-[oklch(0.74_0.19_295)] shadow-[0_0_8px_oklch(0.74_0.19_295/0.5)]" />
+                <span className="nav-active-dot" />
               )}
             </a>
           ))}
         </div>
 
+        {/* Mobile toggle */}
         <button
           type="button"
-          className="rounded-lg border border-border p-2 text-muted-foreground transition hover:border-[oklch(0.74_0.19_295/0.5)] hover:text-[oklch(0.74_0.19_295)] md:hidden"
+          className="rounded p-1.5 text-[var(--muted-foreground)] transition hover:text-[var(--foreground)] md:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -111,26 +113,27 @@ export function Navbar() {
         </button>
       </div>
 
+      {/* Mobile menu */}
       <div
         className={[
-          "overflow-hidden border-t border-border/50 bg-[oklch(0.13_0.02_285/0.95)] backdrop-blur-2xl transition-all duration-300 md:hidden",
+          "overflow-hidden border-t border-[var(--border)] bg-[rgba(9,11,19,0.97)] backdrop-blur-xl transition-all duration-300 md:hidden",
           mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
         ].join(" ")}
       >
-        <div className="flex flex-col gap-1 px-6 py-4">
+        <div className="flex flex-col px-6 py-4">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
               className={[
-                "rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
+                "py-3 text-sm font-medium tracking-wide border-b border-[var(--border)] last:border-0 transition-colors",
                 active === link.href
-                  ? "bg-[oklch(0.74_0.19_295/0.1)] text-[oklch(0.74_0.19_295)]"
-                  : "text-muted-foreground hover:bg-surface hover:text-foreground",
+                  ? "text-[var(--primary)]"
+                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
               ].join(" ")}
             >
-              {link.label}
+              {active === link.href ? "〉" : "　"} {link.label}
             </a>
           ))}
         </div>

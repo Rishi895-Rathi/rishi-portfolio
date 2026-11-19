@@ -14,32 +14,36 @@ export function AnimatedSection({
   children: ReactNode;
   className?: string;
 }) {
-  const { ref, isInView } = useInView({ threshold: 0.08 });
+  const { ref, isInView } = useInView({ threshold: 0.07 });
 
   return (
     <section
       ref={ref}
       id={id}
-      className={`mx-auto w-full max-w-6xl px-6 py-16 ${className}`}
+      className={`mx-auto w-full max-w-6xl px-6 py-20 ${className}`}
     >
+      {/* Eyebrow */}
       <p
-        className={`mb-2 flex items-center gap-2 text-[11px] tracking-[0.25em] text-primary uppercase transition-all duration-700 ${
-          isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+        className={`mb-3 font-mono text-[0.6875rem] tracking-[0.3em] text-[var(--accent-2)] uppercase transition-all duration-700 ${
+          isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
-        <span className="h-1.5 w-1.5 rounded-full bg-primary shadow-[var(--glow-soft)]" />
-        {eyebrow}
+        〉 {eyebrow}
       </p>
+
+      {/* Title */}
       <h2
-        className={`mb-10 text-3xl font-bold sm:text-4xl transition-all duration-700 delay-100 ${
-          isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+        className={`mb-12 text-3xl font-bold leading-tight sm:text-4xl transition-all duration-700 delay-100 ${
+          isInView ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
         }`}
       >
         {title}
       </h2>
+
+      {/* Content */}
       <div
         className={`transition-all duration-700 delay-200 ${
-          isInView ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+          isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
         }`}
       >
         {children}
