@@ -2,19 +2,19 @@ import { useEffect, useState, useCallback } from "react";
 import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
+  { label: "About",        href: "#about" },
+  { label: "Skills",       href: "#skills" },
+  { label: "Projects",     href: "#projects" },
   { label: "Achievements", href: "#achievements" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact",      href: "#contact" },
 ];
 
 export function Navbar() {
-  const [active, setActive] = useState("");
-  const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  const [active, setActive]       = useState("");
+  const [scrolled, setScrolled]   = useState(false);
+  const [hidden, setHidden]       = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [lastY, setLastY] = useState(0);
+  const [lastY, setLastY]         = useState(0);
 
   useEffect(() => {
     const onScroll = () => {
@@ -33,9 +33,7 @@ export function Navbar() {
     ).filter(Boolean) as HTMLElement[];
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(`#${entry.target.id}`);
-        });
+        entries.forEach((e) => { if (e.isIntersecting) setActive(`#${e.target.id}`); });
       },
       { rootMargin: "-20% 0px -60% 0px" }
     );
@@ -46,58 +44,40 @@ export function Navbar() {
   const handleClick = useCallback(
     (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
       e.preventDefault();
-      const el = document.getElementById(href.slice(1));
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-        setMobileOpen(false);
-      }
-    },
-    []
+      document.getElementById(href.slice(1))?.scrollIntoView({ behavior: "smooth" });
+      setMobileOpen(false);
+    }, []
   );
 
   return (
     <nav
       className={[
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "border-b border-[var(--border)] bg-[rgba(9,11,19,0.85)] backdrop-blur-xl"
-          : "bg-transparent",
+        "navbar",
+        scrolled ? "navbar-scrolled" : "",
         hidden && !mobileOpen ? "-translate-y-full" : "translate-y-0",
+        "transition-transform duration-300",
       ].join(" ")}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        {/* Logo */}
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        {/* Wordmark */}
         <a
           href="#"
-          aria-label="Home"
-          onClick={(e) => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: "smooth" });
-          }}
-          className="group font-display text-sm font-bold tracking-widest text-[var(--muted-foreground)] transition-colors hover:text-[var(--primary)] uppercase"
+          onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
+          className="font-display text-sm font-bold tracking-[0.15em] uppercase text-[var(--teal)] transition hover:text-[var(--vermilion)]"
         >
-          RR
-          <span className="ml-1 inline-block h-1 w-1 rounded-full bg-[var(--primary)] align-middle" />
+          Rishi Rathi
         </a>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center gap-1 md:flex">
+        {/* Desktop */}
+        <div className="hidden items-center md:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
-              className={[
-                "relative px-4 py-2 text-xs font-medium tracking-wide transition-colors uppercase",
-                active === link.href
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
-              ].join(" ")}
+              className={["nav-link", active === link.href ? "nav-link-active" : ""].join(" ")}
             >
               {link.label}
-              {active === link.href && (
-                <span className="nav-active-dot" />
-              )}
             </a>
           ))}
         </div>
@@ -105,7 +85,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           type="button"
-          className="rounded p-1.5 text-[var(--muted-foreground)] transition hover:text-[var(--foreground)] md:hidden"
+          className="p-1.5 text-[var(--teal)] transition hover:text-[var(--vermilion)] md:hidden"
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >
@@ -114,26 +94,24 @@ export function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div
-        className={[
-          "overflow-hidden border-t border-[var(--border)] bg-[rgba(9,11,19,0.97)] backdrop-blur-xl transition-all duration-300 md:hidden",
-          mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
-        ].join(" ")}
-      >
-        <div className="flex flex-col px-6 py-4">
+      <div className={[
+        "overflow-hidden bg-[var(--cream-light)] border-t border-[rgba(19,52,50,0.1)] transition-all duration-300 md:hidden",
+        mobileOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0",
+      ].join(" ")}>
+        <div className="flex flex-col px-6 py-2">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={(e) => handleClick(e, link.href)}
               className={[
-                "py-3 text-sm font-medium tracking-wide border-b border-[var(--border)] last:border-0 transition-colors",
+                "py-3 text-sm font-medium tracking-widest uppercase border-b border-[rgba(19,52,50,0.08)] last:border-0 transition-colors",
                 active === link.href
-                  ? "text-[var(--primary)]"
-                  : "text-[var(--muted-foreground)] hover:text-[var(--foreground)]",
+                  ? "text-[var(--vermilion)]"
+                  : "text-[var(--teal)] hover:text-[var(--vermilion)]",
               ].join(" ")}
             >
-              {active === link.href ? "〉" : "　"} {link.label}
+              {link.label}
             </a>
           ))}
         </div>

@@ -7,12 +7,14 @@ export function AnimatedSection({
   title,
   children,
   className = "",
+  dark = false,
 }: {
   id: string;
   eyebrow: string;
   title: string;
   children: ReactNode;
   className?: string;
+  dark?: boolean;
 }) {
   const { ref, isInView } = useInView({ threshold: 0.07 });
 
@@ -20,32 +22,38 @@ export function AnimatedSection({
     <section
       ref={ref}
       id={id}
-      className={`mx-auto w-full max-w-6xl px-6 py-20 ${className}`}
+      className={`mx-auto w-full max-w-7xl px-6 py-20 md:py-28 ${className}`}
     >
-      {/* Eyebrow */}
+      {/* Eyebrow — Swiss label */}
       <p
-        className={`mb-3 font-mono text-[0.6875rem] tracking-[0.3em] text-[var(--accent-2)] uppercase transition-all duration-700 ${
+        className={`label-sm mb-4 transition-all duration-700 ${
           isInView ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
         }`}
       >
-        〉 {eyebrow}
+        {eyebrow}
       </p>
+
+      {/* Swiss rule under eyebrow */}
+      <div className={`swiss-rule-vermilion mb-8 transition-all duration-700 delay-75 ${
+        isInView ? "w-12 opacity-100" : "w-0 opacity-0"
+      }`} />
 
       {/* Title */}
       <h2
-        className={`mb-12 text-3xl font-bold leading-tight sm:text-4xl transition-all duration-700 delay-100 ${
-          isInView ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0"
-        }`}
+        className={[
+          "mb-14 font-display font-bold leading-tight transition-all duration-700 delay-100",
+          "text-3xl sm:text-4xl md:text-5xl",
+          dark ? "text-[var(--cream)]" : "text-[var(--teal)]",
+          isInView ? "translate-y-0 opacity-100" : "translate-y-5 opacity-0",
+        ].join(" ")}
       >
         {title}
       </h2>
 
       {/* Content */}
-      <div
-        className={`transition-all duration-700 delay-200 ${
-          isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
-        }`}
-      >
+      <div className={`transition-all duration-700 delay-200 ${
+        isInView ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"
+      }`}>
         {children}
       </div>
     </section>

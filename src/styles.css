@@ -4,12 +4,19 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* ═══════════════════════════════════════════════
+   SWISS EDITORIAL DESIGN SYSTEM
+   Palette: Vermilion #E54129 · Teal #133432 · Cream #E6E2D6
+═══════════════════════════════════════════════ */
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap");
+
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-sm: 0px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 4px;
+  --radius-2xl: 4px;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -30,349 +37,503 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-surface: var(--surface);
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+
+  /* ── Swiss Typography System ── */
+  --font-display: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono:    "JetBrains Mono", ui-monospace, monospace;
 }
 
+/* ═══════════════════════════════════════════════
+   COLOR TOKENS — Three color palette only
+═══════════════════════════════════════════════ */
 :root {
-  --radius: 0.25rem;
+  /* ── Core Palette ── */
+  --vermilion:        #E54129;   /* Primary identity color */
+  --vermilion-dark:   #c4341e;   /* Hover / pressed */
+  --vermilion-light:  #ea6550;   /* Light variant */
+  --vermilion-pale:   #f5c4bb;   /* Very pale tint */
+  --vermilion-10:     rgba(229,65,41,0.1);
+  --vermilion-20:     rgba(229,65,41,0.2);
 
-  /* ── Cinematic Midnight Palette ── */
-  --background:        #090b13;
-  --surface:           #0d1020;
-  --surface-2:         #111628;
-  --foreground:        #e6e4f0;
-  --card:              #111628;
-  --card-foreground:   #e6e4f0;
-  --popover:           #111628;
-  --popover-foreground:#e6e4f0;
+  --teal:             #133432;   /* Typography / structure */
+  --teal-mid:         #1e4e4b;   /* Elevated surface */
+  --teal-light:       #2a6460;   /* Hover teal */
+  --teal-pale:        #c2d4d3;   /* Pale teal for subtle bg */
+  --teal-10:          rgba(19,52,50,0.1);
+  --teal-20:          rgba(19,52,50,0.2);
 
-  /* Primary: muted violet — CotE / Classroom of the Elite energy */
-  --primary:           #7c6af0;
-  --primary-foreground:#ffffff;
-  --primary-dim:       rgba(124, 106, 240, 0.12);
-  --primary-border:    rgba(124, 106, 240, 0.25);
+  --cream:            #E6E2D6;   /* Off-white typography */
+  --cream-dark:       #cec9ba;   /* Darker cream */
+  --cream-light:      #f2efe8;   /* Lighter cream */
+  --cream-10:         rgba(230,226,214,0.1);
 
-  /* Accent: soft sakura pink — Your Lie in April / Your Name */
-  --accent:            #c084c8;
-  --accent-foreground: #090b13;
-  --accent-dim:        rgba(192, 132, 200, 0.1);
-
-  /* Accent 2: desaturated teal — code, tags */
-  --accent-2:          #4ba3c3;
-
-  --secondary:         #161929;
-  --secondary-foreground: #a8a4c0;
-  --muted:             #161929;
-  --muted-foreground:  #5a5878;
-  --border:            #1c2035;
-  --border-bright:     #2d3358;
-  --input:             #1c2035;
-  --ring:              #7c6af0;
-  --destructive:       #e05252;
+  /* ── Tailwind semantic mapping ── */
+  --background:        var(--cream-light);
+  --surface:           var(--cream);
+  --foreground:        var(--teal);
+  --card:              var(--cream);
+  --card-foreground:   var(--teal);
+  --popover:           var(--cream);
+  --popover-foreground: var(--teal);
+  --primary:           var(--vermilion);
+  --primary-foreground: var(--cream-light);
+  --secondary:         var(--teal-pale);
+  --secondary-foreground: var(--teal);
+  --muted:             var(--cream-dark);
+  --muted-foreground:  rgba(19,52,50,0.55);
+  --accent:            var(--vermilion);
+  --accent-foreground: var(--cream-light);
+  --destructive:       #c0392b;
   --destructive-foreground: #fff;
+  --border:            rgba(19,52,50,0.15);
+  --border-strong:     rgba(19,52,50,0.3);
+  --input:             rgba(19,52,50,0.1);
+  --ring:              var(--vermilion);
 
-  /* ── Shadow tokens ── */
-  --shadow-panel: 0 1px 3px rgba(0,0,0,0.5), 0 8px 24px rgba(0,0,0,0.3);
-  --shadow-hover:  0 2px 8px rgba(0,0,0,0.6), 0 16px 40px rgba(0,0,0,0.4);
+  --radius: 2px;
 }
 
-/* ═══════════════ BASE ═══════════════ */
-html {
-  scroll-behavior: smooth;
-}
+/* ═══════════════════════════════════════════════
+   BASE RESET
+═══════════════════════════════════════════════ */
+html { scroll-behavior: smooth; }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
-  }
+  * { border-color: var(--color-border); }
+
   body {
-    background-color: var(--background);
-    color: var(--foreground);
+    background-color: var(--cream-light);
+    color: var(--teal);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "kern" 1, "liga" 1;
   }
+
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: -0.025em;
+    color: var(--teal);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
   }
+
   ::selection {
-    background: rgba(124, 106, 240, 0.3);
-    color: #fff;
+    background: var(--vermilion);
+    color: var(--cream-light);
   }
 }
 
-/* ═══════════════ FONTS ═══════════════ */
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap");
+/* ═══════════════════════════════════════════════
+   SWISS EDITORIAL TYPOGRAPHY
+═══════════════════════════════════════════════ */
 
-/* ═══════════════ NOISE TEXTURE ═══════════════ */
-/* Subtle cinematic grain — like an anime screenshot */
-.noise-bg::before {
-  content: "";
+/* Giant editorial display text — used as background texture */
+.editorial-bg-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(6rem, 20vw, 18rem);
+  line-height: 0.85;
+  letter-spacing: -0.05em;
+  color: var(--teal);
+  opacity: 0.04;
+  pointer-events: none;
+  user-select: none;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/* Section label — Swiss small caps */
+.label-sm {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--vermilion);
+}
+
+/* Mono utility */
+.font-mono-util {
+  font-family: var(--font-mono);
+}
+
+/* ═══════════════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════════════ */
+.navbar {
   position: fixed;
-  inset: 0;
-  opacity: 0.028;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 999;
-}
-
-/* ═══════════════ SCAN LINES ═══════════════ */
-/* 1px repeating horizontal lines — cinematic feel */
-.scan-lines::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,0,0,0.04) 2px,
-    rgba(0,0,0,0.04) 4px
-  );
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* ═══════════════ HERO ═══════════════ */
-.hero-bg-glow {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.12;
-}
-
-/* ═══════════════ GRADIENT TEXT ═══════════════ */
-.gradient-text-static {
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gradient-text-teal {
-  background: linear-gradient(135deg, var(--accent-2), var(--primary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ═══════════════ PANEL (replaces glass-card) ═══════════════ */
-/* Intentionally less rounded. Editorial, not generic. */
-.panel {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.panel:hover {
-  border-color: var(--border-bright);
-  box-shadow: var(--shadow-hover);
-}
-
-.panel-accent {
-  background: linear-gradient(135deg, var(--primary-dim), rgba(192,132,200,0.06));
-  border: 1px solid var(--primary-border);
-  border-radius: 6px;
-  transition: border-color 0.25s ease;
-}
-
-.panel-accent:hover {
-  border-color: rgba(124,106,240,0.45);
-}
-
-/* ═══════════════ SECTION RULE ═══════════════ */
-/* Thin dividers instead of orbital decorators */
-.section-rule {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--border-bright) 30%, var(--border-bright) 70%, transparent);
-  margin: 0 auto;
-}
-
-/* ═══════════════ PROJECT ENTRY (editorial) ═══════════════ */
-.project-entry {
-  position: relative;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
-  transition: padding-left 0.3s ease;
-}
-
-.project-entry::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--primary);
-  transform: scaleY(0);
-  transform-origin: top;
-  transition: transform 0.3s ease;
-}
-
-.project-entry:hover::before {
-  transform: scaleY(1);
-}
-
-.project-entry:hover {
-  padding-left: 1.25rem;
-}
-
-/* Featured project card */
-.project-featured {
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 2rem;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.project-featured::after {
-  content: "";
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  z-index: 100;
+  transition: background 0.3s, border-color 0.3s;
+}
+
+.navbar-scrolled {
+  background: rgba(230,226,214,0.92);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(19,52,50,0.12);
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: rgba(19,52,50,0.6);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  transition: color 0.2s;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link-active {
+  color: var(--teal);
+}
+
+.nav-link-active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 1rem;
+  right: 1rem;
   height: 2px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  background: var(--vermilion);
 }
 
-.project-featured:hover::after {
-  opacity: 1;
+/* ═══════════════════════════════════════════════
+   HERO SECTION
+═══════════════════════════════════════════════ */
+.hero-section {
+  background: var(--vermilion);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
 }
 
-.project-featured:hover {
-  border-color: var(--border-bright);
-  box-shadow: var(--shadow-hover);
+/* Halftone dot grid — Swiss poster feel */
+.halftone-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  background-image: radial-gradient(circle, var(--teal) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
 }
 
-/* ═══════════════ TAGS ═══════════════ */
+/* Diagonal stripe accent */
+.stripe-accent {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.06;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--teal),
+    var(--teal) 1px,
+    transparent 1px,
+    transparent 12px
+  );
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION LAYOUTS
+═══════════════════════════════════════════════ */
+
+/* Cream section — primary content area */
+.section-cream {
+  background: var(--cream-light);
+}
+
+/* Teal section — accent backgrounds */
+.section-teal {
+  background: var(--teal);
+  color: var(--cream);
+}
+
+.section-teal h1,
+.section-teal h2,
+.section-teal h3,
+.section-teal h4 {
+  color: var(--cream);
+}
+
+/* ═══════════════════════════════════════════════
+   PROJECT ENTRIES — Swiss editorial list
+═══════════════════════════════════════════════ */
+.project-row {
+  border-top: 1px solid rgba(19,52,50,0.15);
+  padding: 2.5rem 0;
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: 2rem;
+  transition: background 0.2s;
+  cursor: default;
+  position: relative;
+}
+
+.project-row::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 0;
+  background: var(--vermilion);
+  transition: height 0.25s ease;
+  z-index: 0;
+}
+
+.project-row:hover {
+  padding-left: 1.5rem;
+  transition: padding-left 0.25s ease, background 0.2s;
+}
+
+/* Featured project — teal bg block */
+.project-featured-block {
+  background: var(--teal);
+  color: var(--cream);
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.project-featured-block:hover {
+  transform: translateY(-2px);
+}
+
+.project-featured-block .proj-index {
+  color: var(--vermilion);
+}
+
+.project-featured-block .proj-title {
+  color: var(--cream);
+}
+
+.project-featured-block .proj-desc {
+  color: rgba(230,226,214,0.75);
+}
+
+/* Secondary project block — cream bg */
+.project-secondary-block {
+  background: var(--cream);
+  border: 1px solid rgba(19,52,50,0.12);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.2s, transform 0.3s ease;
+}
+
+.project-secondary-block:hover {
+  border-color: var(--vermilion);
+  transform: translateY(-2px);
+}
+
+.project-secondary-block .proj-index {
+  color: var(--vermilion);
+}
+
+/* Top bar on featured block */
+.project-featured-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--vermilion);
+}
+
+/* ═══════════════════════════════════════════════
+   TECH TAGS
+═══════════════════════════════════════════════ */
 .tech-tag {
   font-family: var(--font-mono);
-  font-size: 0.6875rem;
-  color: var(--accent-2);
-  border: 1px solid var(--border-bright);
-  border-radius: 3px;
-  padding: 0.2rem 0.5rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  border: 1px solid rgba(19,52,50,0.25);
+  padding: 0.2rem 0.6rem;
   background: transparent;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tech-tag-cream {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cream);
+  border: 1px solid rgba(230,226,214,0.3);
+  padding: 0.2rem 0.6rem;
+  background: transparent;
 }
 
 .tech-tag:hover {
-  border-color: var(--accent-2);
-  background: rgba(75,163,195,0.08);
+  background: var(--vermilion);
+  color: var(--cream-light);
+  border-color: var(--vermilion);
 }
 
-/* ═══════════════ BUTTONS ═══════════════ */
+/* ═══════════════════════════════════════════════
+   BUTTONS
+═══════════════════════════════════════════════ */
 .btn-primary {
-  background: var(--primary);
-  color: #fff;
+  background: var(--teal);
+  color: var(--cream-light);
+  font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.875rem;
-  border-radius: 4px;
-  padding: 0.65rem 1.5rem;
-  border: 1px solid transparent;
-  transition: background 0.2s, opacity 0.2s, transform 0.15s;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--teal);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .btn-primary:hover {
-  background: #9177f5;
-  transform: translateY(-1px);
+  background: transparent;
+  color: var(--teal);
 }
 
 .btn-outline {
-  border: 1px solid var(--border-bright);
-  color: var(--foreground);
-  font-weight: 500;
-  font-size: 0.875rem;
-  border-radius: 4px;
-  padding: 0.65rem 1.5rem;
   background: transparent;
-  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  color: var(--teal);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.8rem 2rem;
+  border: 2px solid var(--teal);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  transition: background 0.2s, color 0.2s;
 }
 
 .btn-outline:hover {
-  border-color: var(--primary);
-  color: var(--primary);
-  background: var(--primary-dim);
+  background: var(--teal);
+  color: var(--cream-light);
 }
 
-.btn-ghost {
-  color: var(--muted-foreground);
-  font-weight: 500;
-  font-size: 0.875rem;
-  border-radius: 4px;
-  padding: 0.65rem 1.5rem;
-  background: transparent;
-  transition: color 0.2s;
+/* Hero buttons — on vermilion bg */
+.btn-hero-primary {
+  background: var(--teal);
+  color: var(--cream-light);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: 2px solid var(--teal);
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  transition: background 0.2s, color 0.2s;
 }
 
-.btn-ghost:hover {
-  color: var(--foreground);
+.btn-hero-primary:hover {
+  background: transparent;
+  color: var(--teal);
 }
 
-/* ═══════════════ SOCIAL LINK ═══════════════ */
+.btn-hero-outline {
+  background: transparent;
+  color: var(--cream-light);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.5rem;
+  border: 2px solid var(--cream-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-hero-outline:hover {
+  background: var(--cream-light);
+  color: var(--vermilion);
+}
+
+/* ═══════════════════════════════════════════════
+   HORIZONTAL RULE — Swiss editorial divider
+═══════════════════════════════════════════════ */
+.swiss-rule {
+  height: 1px;
+  background: rgba(19,52,50,0.15);
+  width: 100%;
+}
+
+.swiss-rule-vermilion {
+  height: 2px;
+  background: var(--vermilion);
+  width: 3rem;
+}
+
+/* ═══════════════════════════════════════════════
+   SOCIAL LINKS
+═══════════════════════════════════════════════ */
 .social-link {
+  color: rgba(19,52,50,0.5);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
   transition: color 0.2s, transform 0.2s;
 }
 
 .social-link:hover {
-  color: var(--primary);
+  color: var(--vermilion);
   transform: translateX(3px);
 }
 
-/* ═══════════════ INPUT ═══════════════ */
+.social-link-cream {
+  color: rgba(230,226,214,0.6);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.social-link-cream:hover {
+  color: var(--cream-light);
+  transform: translateX(3px);
+}
+
+/* ═══════════════════════════════════════════════
+   INPUT FIELDS
+═══════════════════════════════════════════════ */
 .input-field {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  padding: 0.65rem 0.875rem;
-  font-size: 0.875rem;
-  color: var(--foreground);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(19,52,50,0.25);
+  padding: 0.75rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.9375rem;
+  color: var(--teal);
   width: 100%;
   outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  font-family: var(--font-sans);
+  transition: border-color 0.2s;
+}
+
+.input-field::placeholder {
+  color: rgba(19,52,50,0.35);
 }
 
 .input-field:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(124,106,240,0.1);
+  border-bottom-color: var(--vermilion);
 }
 
-/* ═══════════════ NAVBAR ACTIVE ═══════════════ */
-.nav-active-dot {
-  position: absolute;
-  bottom: -2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--primary);
-}
-
-/* ═══════════════ NUCLEUS RESTYLE ═══════════════ */
+/* ═══════════════════════════════════════════════
+   NUCLEUS / ORBIT — Restyled for new palette
+═══════════════════════════════════════════════ */
 @keyframes orbit-spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -384,15 +545,15 @@ html {
 }
 
 @keyframes nucleus-breathe {
-  0%, 100% { box-shadow: 0 0 32px rgba(124,106,240,0.3), 0 0 64px rgba(124,106,240,0.1); }
-  50%       { box-shadow: 0 0 48px rgba(124,106,240,0.5), 0 0 96px rgba(124,106,240,0.15); }
+  0%, 100% { box-shadow: 0 0 24px rgba(229,65,41,0.3); }
+  50%       { box-shadow: 0 0 40px rgba(229,65,41,0.5); }
 }
 
 .orbit-ring {
   position: absolute;
   top: 50%; left: 50%;
   border-radius: 9999px;
-  border: 1px solid rgba(124,106,240,0.15);
+  border: 1px solid rgba(19,52,50,0.12);
   transform: translate(-50%, -50%);
 }
 
@@ -427,41 +588,111 @@ html {
   animation: nucleus-breathe 5s ease-in-out infinite;
 }
 
-/* ═══════════════ TYPING CURSOR ═══════════════ */
-@keyframes blink-cursor {
-  0%, 100% { border-color: var(--accent-2); }
-  50%       { border-color: transparent; }
-}
-
-.typing-cursor {
-  border-right: 2px solid var(--accent-2);
-  animation: blink-cursor 1s step-end infinite;
-  padding-right: 2px;
-}
-
-/* ═══════════════ SCROLL INDICATOR ═══════════════ */
+/* ═══════════════════════════════════════════════
+   SCROLL INDICATOR
+═══════════════════════════════════════════════ */
 @keyframes scroll-bounce {
-  0%, 100% { transform: translateY(0); opacity: 0.6; }
-  50%       { transform: translateY(6px); opacity: 0.2; }
+  0%, 100% { transform: translateY(0); opacity: 0.7; }
+  50%       { transform: translateY(6px); opacity: 0.3; }
 }
 
 .scroll-indicator {
   animation: scroll-bounce 2.5s ease-in-out infinite;
 }
 
-/* ═══════════════ STAT COUNTER ═══════════════ */
-.stat-num {
-  font-family: var(--font-display);
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1;
+/* ═══════════════════════════════════════════════
+   TYPING CURSOR
+═══════════════════════════════════════════════ */
+@keyframes blink-cursor {
+  0%, 100% { border-color: var(--cream-light); }
+  50%       { border-color: transparent; }
 }
 
-/* ═══════════════ BENTO ═══════════════ */
+.typing-cursor {
+  border-right: 2px solid var(--cream-light);
+  animation: blink-cursor 1s step-end infinite;
+  padding-right: 2px;
+}
+
+/* ═══════════════════════════════════════════════
+   STAT COUNTER
+═══════════════════════════════════════════════ */
+.stat-num {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--vermilion);
+}
+
+.stat-num-cream {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  color: var(--cream);
+}
+
+/* ═══════════════════════════════════════════════
+   PORTRAIT FRAME — Swiss geometric
+═══════════════════════════════════════════════ */
+.portrait-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  top: -8px; left: -8px;
+  right: 8px; bottom: 8px;
+  border: 2px solid var(--teal);
+  z-index: 0;
+  transition: transform 0.3s ease;
+}
+
+.portrait-frame::after {
+  content: "";
+  position: absolute;
+  top: 8px; left: 8px;
+  right: -8px; bottom: -8px;
+  background: var(--vermilion);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+
+.portrait-frame:hover::before {
+  transform: translate(3px, 3px);
+}
+
+.portrait-frame:hover::after {
+  transform: translate(-3px, -3px);
+}
+
+/* ═══════════════════════════════════════════════
+   SKILLS — Editorial list style
+═══════════════════════════════════════════════ */
+.skill-category {
+  border-top: 1px solid rgba(19,52,50,0.15);
+  padding-top: 1.5rem;
+}
+
+/* On teal bg */
+.skill-category-cream {
+  border-top: 1px solid rgba(230,226,214,0.15);
+  padding-top: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════════
+   BENTO
+═══════════════════════════════════════════════ */
 .bento-tall { grid-row: span 2; }
 
-/* ═══════════════ REDUCED MOTION ═══════════════ */
+/* ═══════════════════════════════════════════════
+   REDUCED MOTION
+═══════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   .orbit-spinner,
   .orbit-node-inner,
@@ -470,8 +701,5 @@ html {
   .scroll-indicator {
     animation: none !important;
   }
-
-  html {
-    scroll-behavior: auto;
-  }
+  html { scroll-behavior: auto; }
 }
