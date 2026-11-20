@@ -346,24 +346,24 @@ html { scroll-behavior: smooth; }
 ═══════════════════════════════════════════════ */
 .tech-tag {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--teal);
   border: 1px solid rgba(19,52,50,0.25);
-  padding: 0.2rem 0.6rem;
+  padding: 0.3rem 0.8rem;
   background: transparent;
   transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .tech-tag-cream {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--cream);
-  border: 1px solid rgba(230,226,214,0.3);
-  padding: 0.2rem 0.6rem;
+  border: 1px solid rgba(230,226,214,0.4);
+  padding: 0.3rem 0.8rem;
   background: transparent;
 }
 
@@ -702,4 +702,39 @@ html { scroll-behavior: smooth; }
     animation: none !important;
   }
   html { scroll-behavior: auto; }
+}
+
+/* ═══════════════════════════════════════════════
+   HERO TYPOGRAPHY — Responsive scaling
+═══════════════════════════════════════════════ */
+/* Tablet (max 768px): slightly smaller typing + description */
+@media (max-width: 768px) {
+  .hero-typing {
+    font-size: 0.9375rem !important;
+  }
+  .hero-desc {
+    font-size: 1.0625rem !important;
+    max-width: 100% !important;
+  }
+  .tech-tag-cream,
+  .tech-tag {
+    font-size: 0.6875rem;
+    padding: 0.25rem 0.65rem;
+  }
+}
+
+/* Mobile (max 480px): compact but still readable */
+@media (max-width: 480px) {
+  .hero-typing {
+    font-size: 0.875rem !important;
+  }
+  .hero-desc {
+    font-size: 1rem !important;
+    line-height: 1.55 !important;
+  }
+  .tech-tag-cream,
+  .tech-tag {
+    font-size: 0.625rem;
+    padding: 0.2rem 0.55rem;
+  }
 }

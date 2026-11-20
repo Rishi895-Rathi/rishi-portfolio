@@ -156,15 +156,15 @@ function Portfolio() {
               </div>
 
               {/* Role — typing */}
-              <p className={`mt-7 font-mono text-sm transition-all duration-700 delay-200 ${heroReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                style={{ color: "rgba(230,226,214,0.75)" }}
+              <p className={`hero-typing mt-7 font-mono transition-all duration-700 delay-200 ${heroReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                style={{ color: "rgba(230,226,214,0.9)", fontSize: "1.125rem", letterSpacing: "0.02em" }}
               >
                 <span className="typing-cursor">{typedText}</span>
               </p>
 
               {/* Description */}
-              <p className={`mt-5 max-w-sm text-base leading-relaxed transition-all duration-700 delay-300 ${heroReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
-                style={{ color: "rgba(230,226,214,0.65)", fontWeight: 300 }}
+              <p className={`hero-desc mt-6 max-w-lg transition-all duration-700 delay-300 ${heroReady ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}
+                style={{ color: "rgba(230,226,214,0.85)", fontWeight: 400, fontSize: "1.25rem", lineHeight: 1.6 }}
               >
                 Building scalable, secure backend systems with Java &amp; Spring Boot.
                 Turning complex problems into clean, reliable APIs.
